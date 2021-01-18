@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MusicIndustryConcertsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Artists">
+          <Key>
+            <PropertyRef Name="ArtistID" />
+          </Key>
+          <Property Name="ArtistID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArtistName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="MusicGenre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PerformancePrice" Type="int" Nullable="false" />
+          <Property Name="ExplicitContent" Type="bit" Nullable="false" />
+          <Property Name="ArtistAvailability" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Concerts">
+          <Key>
+            <PropertyRef Name="ConcertID" />
+          </Key>
+          <Property Name="ConcertID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EventDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="PlaceID" Type="int" Nullable="false" />
+          <Property Name="ArtistID" Type="int" Nullable="false" />
+          <Property Name="BaseTicketPrice" Type="int" Nullable="false" />
+          <Property Name="VIPTicketPrice" Type="int" Nullable="false" />
+          <Property Name="RemainingCapacity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Places">
+          <Key>
+            <PropertyRef Name="PlaceID" />
+          </Key>
+          <Property Name="PlaceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlaceName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Capacity" Type="int" Nullable="false" />
+          <Property Name="BarArea" Type="bit" Nullable="false" />
+          <Property Name="VIPArea" Type="bit" Nullable="false" />
+          <Property Name="OpeningHour" Type="int" Nullable="false" />
+          <Property Name="ClosingHour" Type="int" Nullable="false" />
+          <Property Name="AdultsOnly" Type="bit" Nullable="false" />
+          <Property Name="RentalPrice" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TicketOrders">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ConcertID" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="VIPTicket" Type="bit" Nullable="false" />
+          <Property Name="Mail" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="12" />
+        </EntityType>
+        <Association Name="FK__Concerts__Artist__4316F928">
+          <End Role="Artists" Type="Self.Artists" Multiplicity="1" />
+          <End Role="Concerts" Type="Self.Concerts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artists">
+              <PropertyRef Name="ArtistID" />
+            </Principal>
+            <Dependent Role="Concerts">
+              <PropertyRef Name="ArtistID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Concerts__PlaceI__4222D4EF">
+          <End Role="Places" Type="Self.Places" Multiplicity="1" />
+          <End Role="Concerts" Type="Self.Concerts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Places">
+              <PropertyRef Name="PlaceID" />
+            </Principal>
+            <Dependent Role="Concerts">
+              <PropertyRef Name="PlaceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TicketOrd__Conce__45F365D3">
+          <End Role="Concerts" Type="Self.Concerts" Multiplicity="1" />
+          <End Role="TicketOrders" Type="Self.TicketOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Concerts">
+              <PropertyRef Name="ConcertID" />
+            </Principal>
+            <Dependent Role="TicketOrders">
+              <PropertyRef Name="ConcertID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MusicIndustryConcertsModelStoreContainer">
+          <EntitySet Name="Artists" EntityType="Self.Artists" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Concerts" EntityType="Self.Concerts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Places" EntityType="Self.Places" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TicketOrders" EntityType="Self.TicketOrders" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Concerts__Artist__4316F928" Association="Self.FK__Concerts__Artist__4316F928">
+            <End Role="Artists" EntitySet="Artists" />
+            <End Role="Concerts" EntitySet="Concerts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Concerts__PlaceI__4222D4EF" Association="Self.FK__Concerts__PlaceI__4222D4EF">
+            <End Role="Places" EntitySet="Places" />
+            <End Role="Concerts" EntitySet="Concerts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TicketOrd__Conce__45F365D3" Association="Self.FK__TicketOrd__Conce__45F365D3">
+            <End Role="Concerts" EntitySet="Concerts" />
+            <End Role="TicketOrders" EntitySet="TicketOrders" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MusicIndustryConcertsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Artists">
+          <Key>
+            <PropertyRef Name="ArtistID" />
+          </Key>
+          <Property Name="ArtistID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArtistName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MusicGenre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PerformancePrice" Type="Int32" Nullable="false" />
+          <Property Name="ExplicitContent" Type="Boolean" Nullable="false" />
+          <Property Name="ArtistAvailability" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Concerts" Relationship="Self.FK__Concerts__Artist__4316F928" FromRole="Artists" ToRole="Concerts" />
+        </EntityType>
+        <EntityType Name="Concerts">
+          <Key>
+            <PropertyRef Name="ConcertID" />
+          </Key>
+          <Property Name="ConcertID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PlaceID" Type="Int32" Nullable="false" />
+          <Property Name="ArtistID" Type="Int32" Nullable="false" />
+          <Property Name="BaseTicketPrice" Type="Int32" Nullable="false" />
+          <Property Name="VIPTicketPrice" Type="Int32" Nullable="false" />
+          <Property Name="RemainingCapacity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Artists" Relationship="Self.FK__Concerts__Artist__4316F928" FromRole="Concerts" ToRole="Artists" />
+          <NavigationProperty Name="Places" Relationship="Self.FK__Concerts__PlaceI__4222D4EF" FromRole="Concerts" ToRole="Places" />
+          <NavigationProperty Name="TicketOrders" Relationship="Self.FK__TicketOrd__Conce__45F365D3" FromRole="Concerts" ToRole="TicketOrders" />
+        </EntityType>
+        <EntityType Name="Places">
+          <Key>
+            <PropertyRef Name="PlaceID" />
+          </Key>
+          <Property Name="PlaceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlaceName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Capacity" Type="Int32" Nullable="false" />
+          <Property Name="BarArea" Type="Boolean" Nullable="false" />
+          <Property Name="VIPArea" Type="Boolean" Nullable="false" />
+          <Property Name="OpeningHour" Type="Int32" Nullable="false" />
+          <Property Name="ClosingHour" Type="Int32" Nullable="false" />
+          <Property Name="AdultsOnly" Type="Boolean" Nullable="false" />
+          <Property Name="RentalPrice" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Concerts" Relationship="Self.FK__Concerts__PlaceI__4222D4EF" FromRole="Places" ToRole="Concerts" />
+        </EntityType>
+        <EntityType Name="TicketOrders">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ConcertID" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VIPTicket" Type="Boolean" Nullable="false" />
+          <Property Name="Mail" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Concerts" Relationship="Self.FK__TicketOrd__Conce__45F365D3" FromRole="TicketOrders" ToRole="Concerts" />
+        </EntityType>
+        <Association Name="FK__Concerts__Artist__4316F928">
+          <End Role="Artists" Type="Self.Artists" Multiplicity="1" />
+          <End Role="Concerts" Type="Self.Concerts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artists">
+              <PropertyRef Name="ArtistID" />
+            </Principal>
+            <Dependent Role="Concerts">
+              <PropertyRef Name="ArtistID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Concerts__PlaceI__4222D4EF">
+          <End Role="Places" Type="Self.Places" Multiplicity="1" />
+          <End Role="Concerts" Type="Self.Concerts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Places">
+              <PropertyRef Name="PlaceID" />
+            </Principal>
+            <Dependent Role="Concerts">
+              <PropertyRef Name="PlaceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TicketOrd__Conce__45F365D3">
+          <End Role="Concerts" Type="Self.Concerts" Multiplicity="1" />
+          <End Role="TicketOrders" Type="Self.TicketOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Concerts">
+              <PropertyRef Name="ConcertID" />
+            </Principal>
+            <Dependent Role="TicketOrders">
+              <PropertyRef Name="ConcertID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MusicIndustryConcertsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Artists" EntityType="Self.Artists" />
+          <EntitySet Name="Concerts" EntityType="Self.Concerts" />
+          <EntitySet Name="Places" EntityType="Self.Places" />
+          <EntitySet Name="TicketOrders" EntityType="Self.TicketOrders" />
+          <AssociationSet Name="FK__Concerts__Artist__4316F928" Association="Self.FK__Concerts__Artist__4316F928">
+            <End Role="Artists" EntitySet="Artists" />
+            <End Role="Concerts" EntitySet="Concerts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Concerts__PlaceI__4222D4EF" Association="Self.FK__Concerts__PlaceI__4222D4EF">
+            <End Role="Places" EntitySet="Places" />
+            <End Role="Concerts" EntitySet="Concerts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TicketOrd__Conce__45F365D3" Association="Self.FK__TicketOrd__Conce__45F365D3">
+            <End Role="Concerts" EntitySet="Concerts" />
+            <End Role="TicketOrders" EntitySet="TicketOrders" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MusicIndustryConcertsModelStoreContainer" CdmEntityContainer="MusicIndustryConcertsEntities">
+          <EntitySetMapping Name="Artists">
+            <EntityTypeMapping TypeName="MusicIndustryConcertsModel.Artists">
+              <MappingFragment StoreEntitySet="Artists">
+                <ScalarProperty Name="ArtistID" ColumnName="ArtistID" />
+                <ScalarProperty Name="ArtistName" ColumnName="ArtistName" />
+                <ScalarProperty Name="MusicGenre" ColumnName="MusicGenre" />
+                <ScalarProperty Name="PerformancePrice" ColumnName="PerformancePrice" />
+                <ScalarProperty Name="ExplicitContent" ColumnName="ExplicitContent" />
+                <ScalarProperty Name="ArtistAvailability" ColumnName="ArtistAvailability" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Concerts">
+            <EntityTypeMapping TypeName="MusicIndustryConcertsModel.Concerts">
+              <MappingFragment StoreEntitySet="Concerts">
+                <ScalarProperty Name="ConcertID" ColumnName="ConcertID" />
+                <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+                <ScalarProperty Name="PlaceID" ColumnName="PlaceID" />
+                <ScalarProperty Name="ArtistID" ColumnName="ArtistID" />
+                <ScalarProperty Name="BaseTicketPrice" ColumnName="BaseTicketPrice" />
+                <ScalarProperty Name="VIPTicketPrice" ColumnName="VIPTicketPrice" />
+                <ScalarProperty Name="RemainingCapacity" ColumnName="RemainingCapacity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Places">
+            <EntityTypeMapping TypeName="MusicIndustryConcertsModel.Places">
+              <MappingFragment StoreEntitySet="Places">
+                <ScalarProperty Name="PlaceID" ColumnName="PlaceID" />
+                <ScalarProperty Name="PlaceName" ColumnName="PlaceName" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="BarArea" ColumnName="BarArea" />
+                <ScalarProperty Name="VIPArea" ColumnName="VIPArea" />
+                <ScalarProperty Name="OpeningHour" ColumnName="OpeningHour" />
+                <ScalarProperty Name="ClosingHour" ColumnName="ClosingHour" />
+                <ScalarProperty Name="AdultsOnly" ColumnName="AdultsOnly" />
+                <ScalarProperty Name="RentalPrice" ColumnName="RentalPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TicketOrders">
+            <EntityTypeMapping TypeName="MusicIndustryConcertsModel.TicketOrders">
+              <MappingFragment StoreEntitySet="TicketOrders">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ConcertID" ColumnName="ConcertID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="VIPTicket" ColumnName="VIPTicket" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
