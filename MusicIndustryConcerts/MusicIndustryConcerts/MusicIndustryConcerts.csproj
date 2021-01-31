@@ -97,11 +97,17 @@
     <Compile Include="Windows\ArtistAdd.xaml.cs">
       <DependentUpon>ArtistAdd.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\ConcertAdd.xaml.cs">
+      <DependentUpon>ConcertAdd.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\PlaceAdd.xaml.cs">
       <DependentUpon>PlaceAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\TicketOrderAdd.xaml.cs">
+      <DependentUpon>TicketOrderAdd.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -119,11 +125,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\ConcertAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\MainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\PlaceAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\TicketOrderAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -166,6 +180,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Imgs\menu.png" />
+    <Resource Include="Imgs\home.png" />
+    <Resource Include="Imgs\concert.png" />
     <Content Include="MusicIndustryConcertsModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MusicIndustryConcertsModel.edmx</DependentUpon>

@@ -49,3 +49,8 @@ D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\
 D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\obj\Debug\MusicIndustryConcerts.exe
 D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\obj\Debug\MusicIndustryConcerts.pdb
 D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\obj\Debug\Windows\PlaceAdd.g.cs
+D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\obj\Debug\Windows\PlaceAdd.baml
+D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\obj\Debug\Windows\ConcertAdd.g.cs
+D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\obj\Debug\Windows\TicketOrderAdd.g.cs
+D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\obj\Debug\Windows\ConcertAdd.baml
+D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\obj\Debug\Windows\TicketOrderAdd.baml

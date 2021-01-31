@@ -5,17 +5,277 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MusicIndustryConcerts.Windows"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      Height="720"
+      Width="1000 "
       Title="MainView">
 
-    <Grid>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="450" Stroke="Black" VerticalAlignment="Top" Width="800"/>
-        <Button Content="Siemanko" HorizontalAlignment="Left" Margin="172,200,0,0" VerticalAlignment="Top" Width="427" Height="114" FontSize="72" FontFamily="Poppins">
-            <Button.Effect>
-                <DropShadowEffect BlurRadius="50"/>
-            </Button.Effect>
-        </Button>
-        <TextBlock Margin="0,68,0,0" TextWrapping="Wrap" FontFamily="Poppins" FontSize="20" HorizontalAlignment="Center"><Run Text="Music Industry Con"/><Run Text="c"/><Run Text="erts"/></TextBlock>
+    <Grid x:Name="main_menu">
+
+        <Grid Background="#333333">
+
+            <Grid x:Name="nav_panel"
+                  HorizontalAlignment="Left"
+                  Width="110"
+                  Background="#3A3A3A">
+
+                <StackPanel x:Name="panel1">
+
+                    <Grid Height="90">
+
+                        <ToggleButton x:Name="menu_btn"
+                                      Grid.Column="0"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Left"
+                                      Margin="38 , 0, 0, 0"
+                                      Height="28"
+                                      Width="30"
+                                      BorderThickness="0">
+
+                            <ToggleButton.Background>
+
+                                <ImageBrush ImageSource="/Imgs/menu.png" Stretch="None" />
+
+                            </ToggleButton.Background>
+
+                        </ToggleButton>
+
+                    </Grid>
+
+                    <ListView x:Name="menu_list"
+                              Background="Transparent"
+                              BorderBrush="Transparent"
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,30,0,15">
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+
+                                <Image Source="/Imgs/home.png"
+                                       Stretch="None"
+                                       Margin="31,0,0,0"/>
+
+                                <TextBlock Text="Home"
+                                           Margin="42,0,0,0"/>
+
+                            </StackPanel>
+
+                        </ListViewItem>
+
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,30,0,15">
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+
+                                <Image Source="/Imgs/home.png"
+                                       Stretch="None"
+                                       Margin="31,0,0,0"/>
+
+                                <TextBlock Text="Home"
+                                           Margin="42,0,0,0"/>
+
+                            </StackPanel>
+
+                        </ListViewItem>
+
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,30,0,15">
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+
+                                <Image Source="/Imgs/home.png"
+                                       Stretch="None"
+                                       Margin="31,0,0,0"/>
+
+                                <TextBlock Text="Home"
+                                           Margin="42,0,0,0"/>
+
+                            </StackPanel>
+
+                        </ListViewItem>
+
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,30,0,15">
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+
+                                <Image Source="/Imgs/concert.png"
+                                       Width="30"
+                                       Height="30"
+                                       Stretch="Fill"
+                                       Margin="31,0,0,0"/>
+
+                                <TextBlock Text="Home"
+                                           Margin="42,0,0,0"/>
+
+                            </StackPanel>
+
+                        </ListViewItem>
+
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,30,0,15">
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+
+                                <Image Source="/Imgs/home.png"
+                                       Stretch="None"
+                                       Margin="31,0,0,0"/>
+
+                                <TextBlock Text="Home"
+                                           Margin="42,0,0,0"/>
+
+                            </StackPanel>
+
+                        </ListViewItem>
+
+                    </ListView>
+
+                </StackPanel>
+
+            </Grid>
+
+        </Grid>
+        <Grid Background="#333333">
+
+            <Grid x:Name="nav_panel1"
+                HorizontalAlignment="Left"
+                Width="110"
+                Background="#3A3A3A">
+
+                <StackPanel x:Name="panel2">
+
+                    <Grid Height="90">
+
+                        <ToggleButton x:Name="menu_btn1"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left"
+                            Margin="38 , 0, 0, 0"
+                            Height="28"
+                            Width="30"
+                            BorderThickness="0">
+
+                            <ToggleButton.Background>
+
+                                <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/menu.png" Stretch="None" />
+
+                            </ToggleButton.Background>
+
+                        </ToggleButton>
+
+                    </Grid>
+
+                    <ListView x:Name="menu_list1"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+
+                        <ListViewItem HorizontalAlignment="Left"
+                            Margin="0,30,0,15">
+
+                            <StackPanel Orientation="Horizontal"
+                                Width="230">
+
+                                <Image Source="/MusicIndustryConcerts;component/Imgs/home.png"
+                                    Stretch="None"
+                                    Margin="31,0,0,0"/>
+
+                                <TextBlock Text="Home"
+                                    Margin="42,0,0,0"/>
+
+                            </StackPanel>
+
+                        </ListViewItem>
+
+                        <ListViewItem HorizontalAlignment="Left"
+                            Margin="0,30,0,15">
+
+                            <StackPanel Orientation="Horizontal"
+                                Width="230">
+
+                                <Image Source="/MusicIndustryConcerts;component/Imgs/home.png"
+                                    Stretch="None"
+                                    Margin="31,0,0,0"/>
+
+                                <TextBlock Text="Home"
+                                    Margin="42,0,0,0"/>
+
+                            </StackPanel>
+
+                        </ListViewItem>
+
+                        <ListViewItem HorizontalAlignment="Left"
+                            Margin="0,30,0,15">
+
+                            <StackPanel Orientation="Horizontal"
+                                Width="230">
+
+                                <Image Source="/MusicIndustryConcerts;component/Imgs/home.png"
+                                    Stretch="None"
+                                    Margin="31,0,0,0"/>
+
+                                <TextBlock Text="Home"
+                                    Margin="42,0,0,0"/>
+
+                            </StackPanel>
+
+                        </ListViewItem>
+
+                        <ListViewItem HorizontalAlignment="Left"
+                            Margin="0,30,0,15">
+
+                            <StackPanel Orientation="Horizontal"
+                                Width="230">
+
+                                <Image Source="/MusicIndustryConcerts;component/Imgs/concert.png"
+                                    Stretch="Fill"
+                                    Margin="31,0,0,0" Height="30" RenderTransformOrigin="0.5,0.5" Width="30">
+                                    <Image.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="-1"/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Image.RenderTransform>
+                                </Image>
+
+                                <TextBlock Text="Home"
+                                    Margin="42,0,0,0"/>
+
+                            </StackPanel>
+
+                        </ListViewItem>
+
+                        <ListViewItem HorizontalAlignment="Left"
+                            Margin="0,30,0,15">
+
+                            <StackPanel Orientation="Horizontal"
+                                Width="230">
+
+                                <Image Source="/MusicIndustryConcerts;component/Imgs/home.png"
+                                    Stretch="None"
+                                    Margin="31,0,0,0"/>
+
+                                <TextBlock Text="Home"
+                                    Margin="42,0,0,0"/>
+
+                            </StackPanel>
+
+                        </ListViewItem>
+
+                    </ListView>
+
+                </StackPanel>
+
+            </Grid>
+
+        </Grid>
 
     </Grid>
 </Page>

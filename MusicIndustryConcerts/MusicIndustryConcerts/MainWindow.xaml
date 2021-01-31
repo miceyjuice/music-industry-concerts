@@ -5,5 +5,5 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MusicIndustryConcerts"
         mc:Ignorable="d"
-        Title="MainWindow" Height="470" Width="800" Source="Windows/ArtistAdd.xaml" ResizeMode="NoResize">
+        Title="MainWindow" Height="720" Width="1000" Source="Windows/MainView.xaml" ResizeMode="NoResize" WindowStyle="None">
 </NavigationWindow>

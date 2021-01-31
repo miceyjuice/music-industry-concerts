@@ -10,16 +10,16 @@
 
     <Grid>
         <Rectangle x:Name="artistExplicitContent" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="400" Stroke="Black" VerticalAlignment="Stretch" Width="800"/>
-        <Button Content="ADD" Margin="0,337,0,29" Height="34" Width="280" FontFamily="Poppins" Click="Button_Click" Background="#4277d4" Foreground="#fff" BorderBrush="#4277d4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBox x:Name="artistNameInput" Height="23" Margin="0,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" BorderBrush="#4277d4" HorizontalAlignment="Center"/>
-        <TextBlock HorizontalAlignment="Left" Margin="260,104,0,0" TextWrapping="Wrap" Text="Artist name" VerticalAlignment="Top" FontFamily="Poppins"/>
-        <ComboBox x:Name="artistMusicGenreInput" HorizontalAlignment="Center" Margin="0,193,0,187" Width="280" BorderBrush="#4277d4" VerticalAlignment="Center" Height="20"/>
-        <TextBlock HorizontalAlignment="Left" Margin="260,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Poppins"><Run Text="Music "/><Run Text="genre"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="260,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Poppins"><Run Text="Performance "/><Run Text="price"/></TextBlock>
-        <TextBox x:Name="artistPerformancePriceInput" HorizontalAlignment="Center" Margin="0,261,0,119" TextWrapping="Wrap" VerticalAlignment="Center" Width="281" BorderBrush="#4277d4" Height="20"/>
-        <CheckBox x:Name="artistExplicitContentInput" Content="Explicit content" HorizontalAlignment="Center" Margin="-134,305,0,0" VerticalAlignment="Top" FontFamily="Poppins" IsChecked="false" BorderBrush="#4277d4" Width="144" MinWidth="144"/>
-        <CheckBox x:Name="artistAvailabilityInput" Content="Artist availability" HorizontalAlignment="Center" Margin="0,305,-159,0" VerticalAlignment="Top" FontFamily="Poppins" IsChecked="false" BorderBrush="#4277d4"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,50,0,0" TextWrapping="Wrap" Text="ADD AN ARTIST" VerticalAlignment="Top" FontFamily="Poppins" FontSize="24"></TextBlock>
+        <Button Content="ADD" Margin="260,319,260,47" Height="34" Width="280" FontFamily="Poppins" Click="Button_Click" Background="#4277d4" Foreground="#fff" BorderBrush="#4277d4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox x:Name="artistNameInput" Height="23" Margin="260,109,260,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" BorderBrush="#4277d4" HorizontalAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Margin="260,86,0,0" TextWrapping="Wrap" Text="Artist name" VerticalAlignment="Top" FontFamily="Poppins"/>
+        <ComboBox x:Name="artistMusicGenreInput" HorizontalAlignment="Center" Margin="260,175,260,205" Width="280" BorderBrush="#4277d4" VerticalAlignment="Center" Height="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="260,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Poppins"><Run Text="Music "/><Run Text="genre"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="260,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Poppins"><Run Text="Performance "/><Run Text="price"/></TextBlock>
+        <TextBox x:Name="artistPerformancePriceInput" HorizontalAlignment="Center" Margin="260,243,259,137" TextWrapping="Wrap" VerticalAlignment="Center" Width="281" BorderBrush="#4277d4" Height="20"/>
+        <CheckBox x:Name="artistExplicitContentInput" Content="Explicit content" HorizontalAlignment="Center" Margin="261,287,395,0" VerticalAlignment="Top" FontFamily="Poppins" IsChecked="false" BorderBrush="#4277d4" Width="144" MinWidth="144"/>
+        <CheckBox x:Name="artistAvailabilityInput" Content="Artist availability" HorizontalAlignment="Center" Margin="420,287,261,0" VerticalAlignment="Top" FontFamily="Poppins" IsChecked="false" BorderBrush="#4277d4"/>
+        <TextBlock HorizontalAlignment="Center" Margin="314,32,313,0" TextWrapping="Wrap" Text="ADD AN ARTIST" VerticalAlignment="Top" FontFamily="Poppins" FontSize="24"></TextBlock>
 
     </Grid>
 </Page>
