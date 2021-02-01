@@ -189,6 +189,9 @@
     <Resource Include="Imgs\mainbg.png" />
     <Resource Include="Imgs\quit.png" />
     <Resource Include="Imgs\placebg.png" />
+    <Resource Include="Imgs\artistbg.png" />
+    <Resource Include="Imgs\ticketbg.png" />
+    <Resource Include="Imgs\concertbg.png" />
     <Content Include="MusicIndustryConcertsModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MusicIndustryConcertsModel.edmx</DependentUpon>

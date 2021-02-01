@@ -88,7 +88,6 @@
                       FontFamily="Poppins" 
                       IsChecked="false" 
                       BorderBrush="#4277c3"
-                      Checked="placeBarAreaCheckBox_Checked"
                       FontSize="5"
                       Background="Transparent"
                       Padding="0,4,0,0 "
@@ -186,12 +185,21 @@
             <CheckBox x:Name="placeAdultsOnlyCheckBox" 
                       Content="Adults Only" 
                       HorizontalAlignment="Center" 
-                      Margin="605,512,307,0" 
+                      Margin="558,495,100,0" 
                       VerticalAlignment="Top" 
                       FontFamily="Poppins" 
                       IsChecked="false" 
                       BorderBrush="#4277d4" 
-                      Width="88"/>
+                      Width="88"
+                      FontSize="5"
+                      Background="Transparent"
+                      Padding="0,4,0,0 "
+                      Foreground="#fff">
+
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="3.4" ScaleY="3.5" />
+                </CheckBox.LayoutTransform>
+            </CheckBox> 
 
         </Grid>
 
@@ -216,9 +224,18 @@
                         <StackPanel Orientation="Horizontal"
                                 Width="230">
 
-                            <Image Source="/MusicIndustryConcerts;component/Imgs/home.png"
-                                    Stretch="None"
-                                    Margin="31,0,0,0"/>
+                            <Button x:Name="Home_btn"
+                                    Width="30"
+                                    Height="30"
+                                    Margin="31,0,0,0" Click="Home_btn_Click">
+
+                                <Button.Background>
+
+                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/home.png" />
+
+                                </Button.Background>
+
+                            </Button>
 
                             <TextBlock Text="Home"
                                     Margin="42,0,0,0"/>
@@ -261,40 +278,19 @@
                         <StackPanel Orientation="Horizontal"
                                 Width="230">
 
-                            <Image Source="/Imgs/artists.png"
-                                    Stretch="None"
-                                    Margin="31,0,0,0">
-                            </Image>
-
-                            <TextBlock Text="Create a concert"
-                                    Margin="42,0,0,0"/>
-
-                        </StackPanel>
-
-                    </ListViewItem>
-
-                    <ListViewItem HorizontalAlignment="Left"
-                            Margin="0,0,0,15"
-                                  Height="76">
-
-                        <StackPanel Orientation="Horizontal"
-                                Width="230">
-
-                            <Image Source="/Imgs/concert.png"
-                                    Stretch="Fill"
+                            <Button x:Name="Artist_btn"
+                                    Width="30"
+                                    Height="30"
                                     Margin="31,0,0,0" 
-                                    Height="30" 
-                                    RenderTransformOrigin="0.5,0.5" 
-                                    Width="30">
-                                <Image.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform ScaleX="-1"/>
-                                        <SkewTransform/>
-                                        <RotateTransform/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </Image.RenderTransform>
-                            </Image>
+                                    Click="Artist_btn_Click">
+
+                                <Button.Background>
+
+                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/artists.png" />
+
+                                </Button.Background>
+
+                            </Button>
 
                             <TextBlock Text="Create a concert"
                                     Margin="42,0,0,0"/>
@@ -310,9 +306,47 @@
                         <StackPanel Orientation="Horizontal"
                                 Width="230">
 
-                            <Image Source="/MusicIndustryConcerts;component/Imgs/tickets.png"
-                                    Stretch="Fill"
-                                    Margin="31,0,0,0" Height="30" Width="30"/>
+                            <Button x:Name="Concerts_btn"
+                                    Width="30"
+                                    Height="30"
+                                    Margin="31,0,0,0" 
+                                    Click="Concerts_btn_Click">
+
+                                <Button.Background>
+
+                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/concert.png" />
+
+                                </Button.Background>
+
+                            </Button>
+
+                            <TextBlock Text="Create a concert"
+                                    Margin="42,0,0,0"/>
+
+                        </StackPanel>
+
+                    </ListViewItem>
+
+                    <ListViewItem HorizontalAlignment="Left"
+                            Margin="0,0,0,15"
+                                  Height="76">
+
+                        <StackPanel Orientation="Horizontal"
+                                Width="230">
+
+                            <Button x:Name="Tickets_btn"
+                                    Width="30"
+                                    Height="30"
+                                    Margin="31,0,0,0" 
+                                    Click="Tickets_btn_Click">
+
+                                <Button.Background>
+
+                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/tickets.png" />
+
+                                </Button.Background>
+
+                            </Button>
 
                             <TextBlock Text="Reserve a ticket"
                                     Margin="42,0,0,0"/>
@@ -352,7 +386,7 @@
                 </ListView>
 
             </StackPanel>
-
+ 
         </Grid>
 
     </Grid>

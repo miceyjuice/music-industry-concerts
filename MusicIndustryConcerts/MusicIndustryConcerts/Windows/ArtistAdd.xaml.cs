@@ -34,8 +34,8 @@ namespace MusicIndustryConcerts.Windows
                 ArtistName = artistNameInput.Text,
                 MusicGenre = artistMusicGenreInput.SelectedValue.ToString(),
                 PerformancePrice = Convert.ToInt32(artistPerformancePriceInput.Text),
-                ExplicitContent = artistExplicitContentInput.IsChecked ?? false,
-                ArtistAvailability = artistAvailabilityInput.IsChecked ?? false
+                ExplicitContent = artistExplicitCheckbox.IsChecked ?? false,
+                ArtistAvailability = artistAvailabilityCheckbox.IsChecked ?? false
             };
 
             context.Artists.Add(newArtist);
@@ -57,6 +57,36 @@ namespace MusicIndustryConcerts.Windows
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             AddArtist();
+        }
+
+        private void Close_btn_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.Close();
+        }
+
+        private void Place_btn_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Windows/PlaceAdd.xaml", UriKind.Relative));
+        }
+
+        private void Artist_btn_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Windows/ArtistAdd.xaml", UriKind.Relative));
+        }
+
+        private void Tickets_btn_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Windows/TicketOrderAdd.xaml", UriKind.Relative));
+        }
+
+        private void Concerts_btn_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Windows/ConcertAdd.xaml", UriKind.Relative));
+        }
+
+        private void Home_btn_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Windows/MainView.xaml", UriKind.Relative));
         }
     }
 }

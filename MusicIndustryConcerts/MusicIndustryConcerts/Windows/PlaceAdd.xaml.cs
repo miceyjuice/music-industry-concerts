@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -54,6 +55,8 @@ namespace MusicIndustryConcerts.Windows
 
             context.Places.Add(newPlace);
             context.SaveChanges();
+
+            
         }
 
 
@@ -62,9 +65,29 @@ namespace MusicIndustryConcerts.Windows
             Application.Current.MainWindow.Close();
         }
 
-        private void placeBarAreaCheckBox_Checked(object sender, RoutedEventArgs e)
+        private void Place_btn_Click(object sender, RoutedEventArgs e)
         {
+            this.NavigationService.Navigate(new Uri("Windows/PlaceAdd.xaml", UriKind.Relative));
+        }
 
+        private void Artist_btn_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Windows/ArtistAdd.xaml", UriKind.Relative));
+        }
+
+        private void Tickets_btn_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Windows/TicketOrderAdd.xaml", UriKind.Relative));
+        }
+
+        private void Concerts_btn_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Windows/ConcertAdd.xaml", UriKind.Relative));
+        }
+
+        private void Home_btn_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Windows/MainView.xaml", UriKind.Relative));
         }
     }
 }

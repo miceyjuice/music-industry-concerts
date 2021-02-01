@@ -5,10 +5,341 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MusicIndustryConcerts.Windows"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="720" d:DesignWidth="1000 "
       Title="TicketOrderAdd">
 
-    <Grid>
-        
+    <Grid Background="#333333" >
+
+        <Grid>
+
+            <Grid.Background>
+
+                <ImageBrush ImageSource="/Imgs/ticketbg.png"
+                            Stretch="None"/>
+
+            </Grid.Background>
+
+            <Button Content="Reserve" 
+                    Margin="168,611,673,64" 
+                    Height="45" Width="159" 
+                    FontFamily="Poppins" 
+                    FontSize="18"
+                    Click="Button_Click" 
+                    Background="#4277d4" 
+                    Foreground="#fff" 
+                    BorderBrush="#4277d4" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center"/>
+            <TextBox x:Name="ticketFirstNameInput" 
+                     Height="47" 
+                     Margin="168,226,514,0" 
+                     TextWrapping="Wrap" 
+                     VerticalAlignment="Top" 
+                     Width="318"
+                     BorderBrush="#4277d4" 
+                     HorizontalAlignment="Center"
+                     Background="Transparent"
+                     FontSize="20"
+                     Foreground="#fff"
+                     Padding="15,8,0,0"/>
+            <TextBlock HorizontalAlignment="Left" 
+                       Margin="168,194,0,0" 
+                       TextWrapping="Wrap" 
+                       Text="First name" 
+                       VerticalAlignment="Top" 
+                       FontFamily="Poppins"
+                       Foreground="#fff"
+                       FontSize="18"/>
+            <TextBlock HorizontalAlignment="Left" 
+                       Margin="170,318,0,0" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top" 
+                       FontFamily="Poppins" 
+                       Text="Concert"
+                       Foreground="#fff"
+                       FontSize="18"/>
+            <TextBlock HorizontalAlignment="Left" 
+                       Margin="168,442,0,0" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top" 
+                       FontFamily="Poppins"
+                       Foreground="#fff"
+                       FontSize="18" Text="Phone number (optional)"/>
+            <TextBox x:Name="ticketPhoneNumberInput" 
+                     HorizontalAlignment="Center"  
+                     TextWrapping="Wrap" 
+                     VerticalAlignment="Center" 
+                     Width="318" 
+                     BorderBrush="#4277d4" 
+                     Height="47" 
+                      Margin="168,474,514,199"
+                     Background="Transparent"
+                     FontSize="20"
+                     Foreground="#fff"
+                     Padding="15,8,0,0" />
+            <TextBlock HorizontalAlignment="Center" 
+                       Margin="170,72,399,0" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top" 
+                       FontFamily="Poppins" 
+                       FontSize="50" 
+                       Foreground="#fff" Width="431" Text="Reserve a ticket"/>
+            <ComboBox x:Name="ticketConcertInput" 
+                     Height="46" 
+                     Margin="168,350,514,0"  
+                     VerticalAlignment="Top" 
+                     Width="318" 
+                     BorderBrush="#4277d4" 
+                     HorizontalAlignment="Center"
+                     Background="Transparent"
+                     FontSize="20"
+                     Foreground="#fff"
+                     Padding="15,8,0,0"/>
+            <CheckBox x:Name="ticketVipCheckbox" 
+                      Content="VIP ticket" 
+                      HorizontalAlignment="Center" 
+                      Margin="558,471,100,0" 
+                      VerticalAlignment="Top" 
+                      FontFamily="Poppins" 
+                      IsChecked="false" 
+                      BorderBrush="#4277d4" 
+                      Width="88"
+                      FontSize="5"
+                      Background="Transparent"
+                      Padding="0,4,0,0 "
+                      Foreground="#fff">
+
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="3.4" ScaleY="3.5" />
+                </CheckBox.LayoutTransform>
+            </CheckBox>
+            <TextBlock HorizontalAlignment="Left" 
+                Margin="584,194,0,0" 
+                TextWrapping="Wrap" 
+                VerticalAlignment="Top" 
+                FontFamily="Poppins"
+                Foreground="#fff"
+                FontSize="18" Text="Last name"/>
+            <TextBox x:Name="ticketLastNameInput" 
+                HorizontalAlignment="Center"  
+                TextWrapping="Wrap" 
+                VerticalAlignment="Center" 
+                Width="318" 
+                BorderBrush="#4277d4" 
+                Height="47" 
+                Margin="584,226,98,447"
+                Background="Transparent"
+                FontSize="20"
+                Foreground="#fff"
+                Padding="15,8,0,0" />
+            <TextBlock HorizontalAlignment="Left" 
+                Margin="584,318,0,0" 
+                TextWrapping="Wrap" 
+                VerticalAlignment="Top" 
+                FontFamily="Poppins"
+                Foreground="#fff"
+                FontSize="18" Text="E-mail"/>
+            <TextBox x:Name="ticketEmailInput" 
+                HorizontalAlignment="Center"  
+                TextWrapping="Wrap" 
+                VerticalAlignment="Center" 
+                Width="318" 
+                BorderBrush="#4277d4" 
+                Height="47" 
+                Margin="584,350,98,323"
+                Background="Transparent"
+                FontSize="20"
+                Foreground="#fff"
+                Padding="15,8,0,0" />
+
+        </Grid>
+
+        <Grid x:Name="nav_panel3"
+                HorizontalAlignment="Left"
+                Width="110"
+                Background="#3A3A3A">
+
+            <StackPanel x:Name="panel4">
+
+
+                <ListView x:Name="menu_list11"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+
+                    <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,80"
+                                      Background="#44688C"
+                                      Height="76">
+
+                        <StackPanel Orientation="Horizontal"
+                                Width="230">
+
+                            <Button x:Name="Home_btn"
+                                    Width="30"
+                                    Height="30"
+                                    Margin="31,0,0,0" Click="Home_btn_Click">
+
+                                <Button.Background>
+
+                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/home.png" />
+
+                                </Button.Background>
+
+                            </Button>
+
+                            <TextBlock Text="Home"
+                                    Margin="42,0,0,0"/>
+
+                        </StackPanel>
+
+                    </ListViewItem>
+
+                    <ListViewItem HorizontalAlignment="Left"
+                            Margin="0,30,0,15"
+                                  Height="76">
+
+                        <StackPanel Orientation="Horizontal"
+                                Width="230">
+
+                            <Button x:Name="Place_btn"
+                                    Width="30"
+                                    Height="30"
+                                    Margin="31,0,0,0"
+                                    Click="Place_btn_Click">
+
+                                <Button.Background>
+
+                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/pin.png" />
+
+                                </Button.Background>
+
+                            </Button>
+
+                            <TextBlock Text="Add a place"
+                                    Margin="42,0,0,0"/>
+
+                        </StackPanel>
+
+                    </ListViewItem>
+
+                    <ListViewItem HorizontalAlignment="Left"
+                            Margin="0,0,0,15"
+                                  Height="76">
+
+                        <StackPanel Orientation="Horizontal"
+                                Width="230">
+
+                            <Button x:Name="Artist_btn"
+                                    Width="30"
+                                    Height="30"
+                                    Margin="31,0,0,0" 
+                                    Click="Artist_btn_Click">
+
+                                <Button.Background>
+
+                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/artists.png" />
+
+                                </Button.Background>
+
+                            </Button>
+
+                            <TextBlock Text="Create a concert"
+                                    Margin="42,0,0,0"/>
+
+                        </StackPanel>
+
+                    </ListViewItem>
+
+                    <ListViewItem HorizontalAlignment="Left"
+                            Margin="0,0,0,15"
+                                  Height="76">
+
+                        <StackPanel Orientation="Horizontal"
+                                Width="230">
+
+                            <Button x:Name="Concerts_btn"
+                                    Width="30"
+                                    Height="30"
+                                    Margin="31,0,0,0" 
+                                    Click="Concerts_btn_Click">
+
+                                <Button.Background>
+
+                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/concert.png" />
+
+                                </Button.Background>
+
+                            </Button>
+
+                            <TextBlock Text="Create a concert"
+                                    Margin="42,0,0,0"/>
+
+                        </StackPanel>
+
+                    </ListViewItem>
+
+                    <ListViewItem HorizontalAlignment="Left"
+                            Margin="0,0,0,15"
+                                  Height="76">
+
+                        <StackPanel Orientation="Horizontal"
+                                Width="230">
+
+                            <Button x:Name="Tickets_btn"
+                                    Width="30"
+                                    Height="30"
+                                    Margin="31,0,0,0" 
+                                    Click="Tickets_btn_Click">
+
+                                <Button.Background>
+
+                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/tickets.png" />
+
+                                </Button.Background>
+
+                            </Button>
+
+                            <TextBlock Text="Reserve a ticket"
+                                    Margin="42,0,0,0"/>
+
+                        </StackPanel>
+
+                    </ListViewItem>
+
+                    <ListViewItem HorizontalAlignment="Left"
+                            Margin="0,90,0,15"
+                                  Height="76">
+
+                        <StackPanel Orientation="Horizontal"
+                                Width="230">
+
+                            <Button x:Name="Close_btn"
+                                    Click="Close_btn_Click" 
+                                    Width="30"
+                                    Height="30"
+                                    Margin="31,0,0,0">
+
+                                <Button.Background>
+
+                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/quit.png"/>
+
+                                </Button.Background>
+
+                            </Button>
+
+                            <TextBlock Text="Close the app"
+                                    Margin="42,0,0,0"/>
+
+                        </StackPanel>
+
+                    </ListViewItem>
+
+                </ListView>
+
+            </StackPanel>
+
+        </Grid>
+
     </Grid>
 </Page>
