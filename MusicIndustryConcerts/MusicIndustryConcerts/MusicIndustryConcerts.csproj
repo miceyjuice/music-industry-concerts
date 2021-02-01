@@ -183,6 +183,12 @@
     <Resource Include="Imgs\menu.png" />
     <Resource Include="Imgs\home.png" />
     <Resource Include="Imgs\concert.png" />
+    <Resource Include="Imgs\tickets.png" />
+    <Resource Include="Imgs\pin.png" />
+    <Resource Include="Imgs\artists.png" />
+    <Resource Include="Imgs\mainbg.png" />
+    <Resource Include="Imgs\quit.png" />
+    <Resource Include="Imgs\placebg.png" />
     <Content Include="MusicIndustryConcertsModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MusicIndustryConcertsModel.edmx</DependentUpon>

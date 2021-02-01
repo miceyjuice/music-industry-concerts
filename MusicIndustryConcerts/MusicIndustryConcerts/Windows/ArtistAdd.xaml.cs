@@ -44,11 +44,14 @@ namespace MusicIndustryConcerts.Windows
 
         private void FillGenres()
         {
-            var genreList = new List<string>();
-
             artistMusicGenreInput.Items.Add("Metal");
             artistMusicGenreInput.Items.Add("Pop");
             artistMusicGenreInput.Items.Add("Rap");
+            artistMusicGenreInput.Items.Add("Rock");
+            artistMusicGenreInput.Items.Add("Blues");
+            artistMusicGenreInput.Items.Add("Country");
+            artistMusicGenreInput.Items.Add("Techno");
+            artistMusicGenreInput.Items.Add("Dubstep");
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
