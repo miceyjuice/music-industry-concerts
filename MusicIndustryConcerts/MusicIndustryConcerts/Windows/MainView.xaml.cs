@@ -25,5 +25,14 @@ namespace MusicIndustryConcerts.Windows
             InitializeComponent();
         }
 
+        private void Close_btn_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.Close();
+        }
+
+        private void Place_btn_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Windows/PlaceAdd.xaml", UriKind.Relative));
+        }
     }
 }
