@@ -55,5 +55,16 @@ namespace MusicIndustryConcerts.Windows
             context.Places.Add(newPlace);
             context.SaveChanges();
         }
+
+
+        private void Close_btn_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.Close();
+        }
+
+        private void placeBarAreaCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
