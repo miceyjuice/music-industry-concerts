@@ -40,7 +40,8 @@
                      Background="Transparent"
                      FontSize="20"
                      Foreground="#fff"
-                     Padding="15,8,0,0"/>
+                     Padding="15,8,0,0"
+                      SelectionChanged="concertPlaceNameComboBox_SelectionChanged"/>
             <TextBlock HorizontalAlignment="Left" 
                        Margin="168,194,0,0" 
                        TextWrapping="Wrap" 
@@ -112,7 +113,7 @@
                 Background="Transparent"
                 FontSize="20"
                 Foreground="#fff"
-                Padding="15,8,0,0" />
+                Padding="15,8,0,0" TextChanged="concertRemainingCapacityInput_TextChanged" />
             <TextBlock HorizontalAlignment="Left" 
                 Margin="585,318,0,0" 
                 TextWrapping="Wrap" 
@@ -149,22 +150,52 @@
                 Background="Transparent"
                 FontSize="20"
                 Foreground="#fff"
-                Padding="15,8,0,0" />
+                Padding="15,8,0,0" SelectionChanged="concertArtistNameComboBox_SelectionChanged" />
             <TextBlock HorizontalAlignment="Left" 
-                Margin="761,324,0,0" 
+                Margin="769,324,0,0" 
                 TextWrapping="Wrap" 
                 VerticalAlignment="Top" 
                 FontFamily="Poppins"
                 Foreground="#aaa"
                 FontSize="10" Text="Suggested price:"/>
             <TextBlock HorizontalAlignment="Left" 
-                x:Name="SuggestedPrice"
-                Margin="850,324,0,0" 
+                x:Name="concertBaseTicketPriceSuggested"
+                Margin="858,324,0,0" 
+                TextWrapping="Wrap" 
+                VerticalAlignment="Top"  
+                FontFamily="Poppins"
+                Foreground="#aaa"
+                FontSize="10" Width="45" Text="0.00"/>
+            <TextBlock HorizontalAlignment="Left" 
+                Margin="343,449,0,0" 
+                TextWrapping="Wrap" 
+                VerticalAlignment="Top" 
+                FontFamily="Poppins"
+                Foreground="#aaa"
+                FontSize="10" Text="Suggested price:"/>
+            <TextBlock HorizontalAlignment="Left" 
+                x:Name="concertVipTicketPriceSuggested"
+                Margin="432,449,0,0" 
                 TextWrapping="Wrap" 
                 VerticalAlignment="Top" 
                 FontFamily="Poppins"
                 Foreground="#aaa"
                 FontSize="10" Width="53" Text="0.00"/>
+            <TextBlock HorizontalAlignment="Left" 
+                Margin="784,449,0,0" 
+                TextWrapping="Wrap" 
+                VerticalAlignment="Top" 
+                FontFamily="Poppins"
+                Foreground="#aaa"
+                FontSize="10"><Run Text="Max capacity"/><Run Text=":"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" 
+                x:Name="concertMaxCapacity"
+                Margin="858,449,0,0" 
+                TextWrapping="Wrap" 
+                VerticalAlignment="Top"  
+                FontFamily="Poppins"
+                Foreground="#aaa"
+                FontSize="10" Width="45" Text="000"/>
 
         </Grid>
 

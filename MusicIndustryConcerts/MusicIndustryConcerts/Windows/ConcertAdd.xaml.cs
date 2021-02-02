@@ -58,15 +58,6 @@ namespace MusicIndustryConcerts.Windows
         {
             var context = new MusicIndustryConcertsEntities();
 
-            /*var newConcert = new Concert()
-            {
-                ArtistName = artistNameInput.Text,
-                MusicGenre = artistMusicGenreInput.SelectedValue.ToString(),
-                PerformancePrice = Convert.ToInt32(artistPerformancePriceInput.Text),
-                ExplicitContent = artistExplicitCheckbox.IsChecked ?? false,
-                ArtistAvailability = artistAvailabilityCheckbox.IsChecked ?? false
-            };*/
-
             var newConcert = new Concerts()
             {
                 PlaceID = context.Places
@@ -87,9 +78,54 @@ namespace MusicIndustryConcerts.Windows
             context.SaveChanges();
         }
 
-        public void CalcSuggestedTicketPrice()
+        public void CalcSuggestedBaseTicketPrice()
         {
+            //Jezeli wybrane sa wartosci z obu list, wtedy ma wygenerowac 
+            //sugerowaną cenę biletów (Base i VIP) nad odpowiednimi polami
 
+            if (concertPlaceNameComboBox.SelectedValue == null || concertArtistNameComboBox.SelectedValue == null || concertRemainingCapacityInput.Text == "") return;
+
+            var context = new MusicIndustryConcertsEntities();
+
+            var placeName = concertPlaceNameComboBox.SelectedValue.ToString();
+            var artistName = concertArtistNameComboBox.SelectedValue.ToString();
+
+            var place = context.Places.First(p => p.PlaceName.Equals(placeName));
+            var artist = context.Artists.First(a => a.ArtistName.Equals(artistName));
+            var desiredCapacity = Int32.Parse(concertRemainingCapacityInput.Text);
+
+            var suggestedPrice = Math.Round((Convert.ToDouble(place.RentalPrice) + Convert.ToDouble(artist.PerformancePrice)) / Convert.ToDouble(desiredCapacity),2);
+
+            concertBaseTicketPriceSuggested.Text = suggestedPrice.ToString("0.00");
+            concertBaseTicketPriceInput.Text = suggestedPrice.ToString("0.00");
+            concertVipTicketPriceSuggested.Text = Math.Round((suggestedPrice * 1.2),2).ToString("0.00");
+            concertVipTicketPriceInput.Text = Math.Round((suggestedPrice * 1.2),2).ToString("0.00");
+        }
+
+
+
+        private void concertPlaceNameComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var context = new MusicIndustryConcertsEntities();
+            var placeName = concertPlaceNameComboBox.SelectedValue.ToString();
+            var place = context.Places.First(p => p.PlaceName.Equals(placeName));
+
+            concertRemainingCapacityInput.Text = place.Capacity.ToString();
+            concertMaxCapacity.Text = place.Capacity.ToString();
+
+            CalcSuggestedBaseTicketPrice();
+        }
+
+
+        private void concertArtistNameComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CalcSuggestedBaseTicketPrice();
+        }
+
+
+        private void concertRemainingCapacityInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CalcSuggestedBaseTicketPrice();
         }
 
         private void Close_btn_Click(object sender, RoutedEventArgs e)
