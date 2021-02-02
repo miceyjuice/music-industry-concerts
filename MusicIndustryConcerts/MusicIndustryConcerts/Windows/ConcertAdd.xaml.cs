@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,9 +25,69 @@ namespace MusicIndustryConcerts.Windows
         public ConcertAdd()
         {
             InitializeComponent();
+            FillPlaces();
+            FillArtists();
+        }
+
+        public void FillPlaces()
+        {
+            var context = new MusicIndustryConcertsEntities();
+
+            foreach(var rowik in context.Places.Select(p => p.PlaceName))
+            {
+                concertPlaceNameComboBox.Items.Add(rowik);
+            }
+        }
+
+        public void FillArtists()
+        {
+            var context = new MusicIndustryConcertsEntities();
+
+            foreach (var rowik in context.Artists.Select(p => p.ArtistName))
+            {
+                concertArtistNameComboBox.Items.Add(rowik);
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            CreateConcert();
+        }
+
+        private void CreateConcert()
+        {
+            var context = new MusicIndustryConcertsEntities();
+
+            /*var newConcert = new Concert()
+            {
+                ArtistName = artistNameInput.Text,
+                MusicGenre = artistMusicGenreInput.SelectedValue.ToString(),
+                PerformancePrice = Convert.ToInt32(artistPerformancePriceInput.Text),
+                ExplicitContent = artistExplicitCheckbox.IsChecked ?? false,
+                ArtistAvailability = artistAvailabilityCheckbox.IsChecked ?? false
+            };*/
+
+            var newConcert = new Concerts()
+            {
+                PlaceID = context.Places
+                    .Where(u => u.PlaceName.ToString().Equals(concertPlaceNameComboBox.SelectedValue.ToString()))
+                    .Select(u => u.PlaceID)
+                    .FirstOrDefault(),
+                ArtistID = context.Artists
+                    .Where( u => u.ArtistName.ToString().Equals(concertArtistNameComboBox.SelectedValue.ToString()))
+                    .Select( u => u.ArtistID)
+                    .FirstOrDefault(),
+                EventDate = concertDateInput.SelectedDate.Value,
+                BaseTicketPrice = Int32.Parse(concertBaseTicketPriceInput.Text),
+                VIPTicketPrice = Int32.Parse(concertVipTicketPriceInput.Text),
+                RemainingCapacity = Int32.Parse(concertRemainingCapacityInput.Text)
+            };
+
+            context.Concerts.Add(newConcert);
+            context.SaveChanges();
+        }
+
+        public void CalcSuggestedTicketPrice()
         {
 
         }

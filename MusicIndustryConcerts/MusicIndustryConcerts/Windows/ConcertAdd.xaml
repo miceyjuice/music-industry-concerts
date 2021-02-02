@@ -30,10 +30,9 @@
                     BorderBrush="#4277d4" 
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Center"/>
-            <TextBox x:Name="placeNameInput" 
+            <ComboBox x:Name="concertPlaceNameComboBox" 
                      Height="47" 
                      Margin="168,226,514,0" 
-                     TextWrapping="Wrap" 
                      VerticalAlignment="Top" 
                      Width="318"
                      BorderBrush="#4277d4" 
@@ -65,7 +64,7 @@
                        FontFamily="Poppins"
                        Foreground="#fff"
                        FontSize="18" Text="VIP ticket price"/>
-            <TextBox x:Name="placeRentalPriceInput" 
+            <TextBox x:Name="concertVipTicketPriceInput" 
                      HorizontalAlignment="Center"  
                      TextWrapping="Wrap" 
                      VerticalAlignment="Center" 
@@ -84,7 +83,7 @@
                        FontFamily="Poppins" 
                        FontSize="50" 
                        Foreground="#fff" Width="448" Text="Create a concert"/>
-            <DatePicker x:Name="placeCapacityInput" 
+            <DatePicker x:Name="concertDateInput" 
                      Height="47" 
                      Margin="168,350,514,0" 
                      VerticalAlignment="Top" 
@@ -101,8 +100,8 @@
                 VerticalAlignment="Top" 
                 FontFamily="Poppins"
                 Foreground="#fff"
-                FontSize="18" Text="Remaining capacity"/>
-            <TextBox x:Name="placeRentalPriceInput_Copy" 
+                FontSize="18" Text="Desired capacity"/>
+            <TextBox x:Name="concertRemainingCapacityInput" 
                 HorizontalAlignment="Center"  
                 TextWrapping="Wrap" 
                 VerticalAlignment="Center" 
@@ -121,7 +120,7 @@
                 FontFamily="Poppins"
                 Foreground="#fff"
                 FontSize="18" Text="Base ticket price"/>
-            <TextBox x:Name="placeRentalPriceInput_Copy1" 
+            <TextBox x:Name="concertBaseTicketPriceInput" 
                 HorizontalAlignment="Center"  
                 TextWrapping="Wrap" 
                 VerticalAlignment="Center" 
@@ -140,9 +139,8 @@
                 FontFamily="Poppins"
                 Foreground="#fff"
                 FontSize="18" Text="Choose an artist"/>
-            <TextBox x:Name="placeRentalPriceInput_Copy2" 
+            <ComboBox x:Name="concertArtistNameComboBox" 
                 HorizontalAlignment="Center"  
-                TextWrapping="Wrap" 
                 VerticalAlignment="Center" 
                 Width="318" 
                 BorderBrush="#4277d4" 
@@ -152,6 +150,21 @@
                 FontSize="20"
                 Foreground="#fff"
                 Padding="15,8,0,0" />
+            <TextBlock HorizontalAlignment="Left" 
+                Margin="761,324,0,0" 
+                TextWrapping="Wrap" 
+                VerticalAlignment="Top" 
+                FontFamily="Poppins"
+                Foreground="#aaa"
+                FontSize="10" Text="Suggested price:"/>
+            <TextBlock HorizontalAlignment="Left" 
+                x:Name="SuggestedPrice"
+                Margin="850,324,0,0" 
+                TextWrapping="Wrap" 
+                VerticalAlignment="Top" 
+                FontFamily="Poppins"
+                Foreground="#aaa"
+                FontSize="10" Width="53" Text="0.00"/>
 
         </Grid>
 

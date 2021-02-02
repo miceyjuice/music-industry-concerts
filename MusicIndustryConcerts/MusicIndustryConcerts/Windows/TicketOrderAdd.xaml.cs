@@ -23,6 +23,19 @@ namespace MusicIndustryConcerts.Windows
         public TicketOrderAdd()
         {
             InitializeComponent();
+            FillConcerts();
+        }
+
+        private void FillConcerts()
+        {
+            var context = new MusicIndustryConcertsEntities();
+
+            foreach (var rowik in context.Concerts)
+            {
+                var concertInfo = $"{rowik.Places.PlaceName} | {rowik.Artists.ArtistName}";
+
+                ticketConcertInput.Items.Add(concertInfo);
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
