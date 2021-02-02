@@ -23,7 +23,7 @@
                       Background="Transparent"
                       Margin="170,200,80,151" SelectionChanged="placesList_SelectionChanged">
                 <ListView.View>
-                    <GridView >
+                    <GridView>
                         <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"/>
                         <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
                         <GridViewColumn Header="Capacity" DisplayMemberBinding="{Binding Capacity}"/>

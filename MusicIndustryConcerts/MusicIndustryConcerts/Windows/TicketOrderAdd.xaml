@@ -84,12 +84,13 @@
                        FontFamily="Poppins" 
                        FontSize="50" 
                        Foreground="#fff" Width="431" Text="Reserve a ticket"/>
+            <!--TODO Creating custom style for a combobox-->
             <ComboBox x:Name="ticketConcertInput" 
                      Height="46" 
                      Margin="168,350,514,0"  
                      VerticalAlignment="Top" 
                      Width="318" 
-                     BorderBrush="#4277d4" 
+                     BorderBrush="Aqua"
                      HorizontalAlignment="Center"
                      Background="Transparent"
                      FontSize="20"

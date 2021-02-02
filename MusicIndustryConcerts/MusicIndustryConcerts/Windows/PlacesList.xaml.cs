@@ -33,11 +33,6 @@ namespace MusicIndustryConcerts.Windows
 
             placesList.View = gridView;
 
-            gridView.Columns.Add(new GridViewColumn
-            {
-                Header = context.Places
-            });
-
             foreach(var rowik in context.Places)
             {
                 var lista = new ListView();

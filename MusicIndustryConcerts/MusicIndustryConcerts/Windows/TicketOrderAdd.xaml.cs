@@ -18,8 +18,11 @@ namespace MusicIndustryConcerts.Windows
     /// <summary>
     /// Logika interakcji dla klasy TicketOrderAdd.xaml
     /// </summary>
+    /// 
+
     public partial class TicketOrderAdd : Page
     {
+        private MusicIndustryConcertsEntities context = new MusicIndustryConcertsEntities();
         public TicketOrderAdd()
         {
             InitializeComponent();
@@ -28,11 +31,12 @@ namespace MusicIndustryConcerts.Windows
 
         private void FillConcerts()
         {
-            var context = new MusicIndustryConcertsEntities();
 
             foreach (var rowik in context.Concerts)
             {
-                var concertInfo = $"{rowik.Places.PlaceName} | {rowik.Artists.ArtistName}";
+                var concertInfo = $"{rowik.ConcertID} | {rowik.Places.PlaceName} | {rowik.Artists.ArtistName}";
+
+                
 
                 ticketConcertInput.Items.Add(concertInfo);
             }
@@ -45,16 +49,64 @@ namespace MusicIndustryConcerts.Windows
 
         private void ReserveTicket()
         {
-            var context = new MusicIndustryConcertsEntities();
-
-            var newTicket = new TicketOrders
+            if (ValidateFields(new Control[] { ticketFirstNameInput, ticketLastNameInput, ticketConcertInput, ticketEmailInput}))
             {
-                FirstName = ticketFirstNameInput.Text,
-                LastName = ticketLastNameInput.Text,
-                /*ConcertID = context.Places
-                            .Where(c => c.PlaceName.Equals(ticketConcertInput.Text))*/
-            };
+                var newTicket = new TicketOrders
+                {
+                    FirstName = ticketFirstNameInput.Text,
+                    LastName = ticketLastNameInput.Text,
+                    ConcertID = Int32.Parse(ticketConcertInput.SelectedValue.ToString().Split(new string[] { " | " }, StringSplitOptions.None)[0]),
+                    Mail = ticketEmailInput.Text,
+                    PhoneNumber = ticketPhoneNumberInput.Text,
+                    VIPTicket = ticketVipCheckbox.IsChecked ?? false
+                };
+
+                context.TicketOrders.Add(newTicket);
+                context.SaveChanges();
+            }
+            
         }
+
+
+        private bool ValidateTextBox(TextBox field)
+        {
+            if (String.IsNullOrWhiteSpace(field.Text))
+            {
+                field.BorderBrush = Brushes.Red;
+                return false;
+            }
+            return true;
+        }
+
+        private bool ValidateComboBox(ComboBox field)
+        {
+            //TODO Validate for a custom style
+            if (field.SelectedIndex == -1)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private bool ValidateFields(Control[] controls)
+        {
+            bool isAllValidated = true;
+            foreach(var control in controls)
+            {
+                if (typeof(TextBox).IsInstanceOfType(control))
+                {
+                    isAllValidated = ValidateTextBox((TextBox)control) ? isAllValidated : false;
+                }
+                else if (typeof(ComboBox).IsInstanceOfType(control))
+                {
+                    isAllValidated = ValidateComboBox((ComboBox)control) ? isAllValidated : false;
+                }
+                else throw new ArgumentException("Type of the argument is not supported");
+            }
+            return isAllValidated;
+        }
+
+
 
         private void Close_btn_Click(object sender, RoutedEventArgs e)
         {
