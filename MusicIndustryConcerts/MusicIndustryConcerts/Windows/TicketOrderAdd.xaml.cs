@@ -40,7 +40,20 @@ namespace MusicIndustryConcerts.Windows
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            ReserveTicket();
+        }
 
+        private void ReserveTicket()
+        {
+            var context = new MusicIndustryConcertsEntities();
+
+            var newTicket = new TicketOrders
+            {
+                FirstName = ticketFirstNameInput.Text,
+                LastName = ticketLastNameInput.Text,
+                /*ConcertID = context.Places
+                            .Where(c => c.PlaceName.Equals(ticketConcertInput.Text))*/
+            };
         }
 
         private void Close_btn_Click(object sender, RoutedEventArgs e)
