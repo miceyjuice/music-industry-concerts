@@ -21,11 +21,12 @@ namespace MusicIndustryConcerts.Windows
     /// </summary>
     public partial class PlaceAdd : Page
     {
+        private readonly MusicIndustryConcertsEntities context = new MusicIndustryConcertsEntities();
+        private readonly Validation validation = new Validation();
         public PlaceAdd()
         {
             InitializeComponent();
         }
-
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -39,25 +40,24 @@ namespace MusicIndustryConcerts.Windows
 
         private void AddPlace()
         {
-            var context = new MusicIndustryConcertsEntities();
 
-
-            var newPlace = new Places()
+            if (validation.ValidateFields(new Control[] { placeNameInput, placeCapacityInput, placeOpeningHourInput, placeClosingHourInput, placeRentalPriceInput }))
             {
-                PlaceName = placeNameInput.Text,
-                Capacity = Int32.Parse(placeCapacityInput.Text),
-                BarArea = placeBarAreaCheckBox.IsChecked ?? false,
-                VIPArea = placeVipAreaCheckBox.IsChecked ?? false,
-                OpeningHour = Int32.Parse(placeOpeningHourInput.Text),
-                ClosingHour = Int32.Parse(placeClosingHourInput.Text),
-                AdultsOnly = placeAdultsOnlyCheckBox.IsChecked ?? false,
-                RentalPrice = Int32.Parse(placeRentalPriceInput.Text)
-            };
+                var newPlace = new Places()
+                {
+                    PlaceName = placeNameInput.Text,
+                    Capacity = Int32.Parse(placeCapacityInput.Text),
+                    BarArea = placeBarAreaCheckBox.IsChecked ?? false,
+                    VIPArea = placeVipAreaCheckBox.IsChecked ?? false,
+                    OpeningHour = Int32.Parse(placeOpeningHourInput.Text),
+                    ClosingHour = Int32.Parse(placeClosingHourInput.Text),
+                    AdultsOnly = placeAdultsOnlyCheckBox.IsChecked ?? false,
+                    RentalPrice = Int32.Parse(placeRentalPriceInput.Text)
+                };
 
-            context.Places.Add(newPlace);
-            context.SaveChanges();
-
-            
+                context.Places.Add(newPlace);
+                context.SaveChanges();
+            }
         }
 
 
