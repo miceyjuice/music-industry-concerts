@@ -22,7 +22,8 @@ namespace MusicIndustryConcerts.Windows
 
     public partial class TicketOrderAdd : Page
     {
-        private MusicIndustryConcertsEntities context = new MusicIndustryConcertsEntities();
+        private readonly MusicIndustryConcertsEntities context = new MusicIndustryConcertsEntities();
+        private readonly Validation validation = new Validation();
         public TicketOrderAdd()
         {
             InitializeComponent();
@@ -49,7 +50,7 @@ namespace MusicIndustryConcerts.Windows
 
         private void ReserveTicket()
         {
-            if (ValidateFields(new Control[] { ticketFirstNameInput, ticketLastNameInput, ticketConcertInput, ticketEmailInput}))
+            if (validation.ValidateFields(new Control[] { ticketFirstNameInput, ticketLastNameInput, ticketConcertInput, ticketEmailInput}))
             {
                 var newTicket = new TicketOrders
                 {
@@ -66,47 +67,6 @@ namespace MusicIndustryConcerts.Windows
             }
             
         }
-
-
-        private bool ValidateTextBox(TextBox field)
-        {
-            if (String.IsNullOrWhiteSpace(field.Text))
-            {
-                field.BorderBrush = Brushes.Red;
-                return false;
-            }
-            return true;
-        }
-
-        private bool ValidateComboBox(ComboBox field)
-        {
-            //TODO Validate for a custom style
-            if (field.SelectedIndex == -1)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        private bool ValidateFields(Control[] controls)
-        {
-            bool isAllValidated = true;
-            foreach(var control in controls)
-            {
-                if (typeof(TextBox).IsInstanceOfType(control))
-                {
-                    isAllValidated = ValidateTextBox((TextBox)control) ? isAllValidated : false;
-                }
-                else if (typeof(ComboBox).IsInstanceOfType(control))
-                {
-                    isAllValidated = ValidateComboBox((ComboBox)control) ? isAllValidated : false;
-                }
-                else throw new ArgumentException("Type of the argument is not supported");
-            }
-            return isAllValidated;
-        }
-
-
 
         private void Close_btn_Click(object sender, RoutedEventArgs e)
         {

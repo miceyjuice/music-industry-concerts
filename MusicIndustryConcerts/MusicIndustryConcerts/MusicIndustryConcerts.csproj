@@ -94,6 +94,7 @@
     <Compile Include="TicketOrders.cs">
       <DependentUpon>MusicIndustryConcertsModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Validation.cs" />
     <Compile Include="Windows\ArtistAdd.xaml.cs">
       <DependentUpon>ArtistAdd.xaml</DependentUpon>
     </Compile>

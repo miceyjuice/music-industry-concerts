@@ -152,35 +152,35 @@
                 Foreground="#fff"
                 Padding="15,8,0,0" SelectionChanged="concertArtistNameComboBox_SelectionChanged" />
             <TextBlock HorizontalAlignment="Left" 
-                Margin="769,324,0,0" 
+                Margin="755,324,0,0" 
                 TextWrapping="Wrap" 
                 VerticalAlignment="Top" 
                 FontFamily="Poppins"
                 Foreground="#aaa"
-                FontSize="10" Text="Suggested price:"/>
+                FontSize="10"><Run Text="Suggested"/><Run Text=" min"/><Run Text=" price:"/></TextBlock>
             <TextBlock HorizontalAlignment="Left" 
                 x:Name="concertBaseTicketPriceSuggested"
-                Margin="858,324,0,0" 
+                Margin="866,324,0,0" 
                 TextWrapping="Wrap" 
                 VerticalAlignment="Top"  
                 FontFamily="Poppins"
                 Foreground="#aaa"
                 FontSize="10" Width="45" Text="0.00"/>
             <TextBlock HorizontalAlignment="Left" 
-                Margin="343,449,0,0" 
+                Margin="336,449,0,0" 
                 TextWrapping="Wrap" 
                 VerticalAlignment="Top" 
                 FontFamily="Poppins"
                 Foreground="#aaa"
-                FontSize="10" Text="Suggested price:"/>
+                FontSize="10"><Run Text="Suggested"/><Run Text=" min"/><Run Text=" price:"/></TextBlock>
             <TextBlock HorizontalAlignment="Left" 
                 x:Name="concertVipTicketPriceSuggested"
-                Margin="432,449,0,0" 
+                Margin="447,449,0,0" 
                 TextWrapping="Wrap" 
                 VerticalAlignment="Top" 
                 FontFamily="Poppins"
                 Foreground="#aaa"
-                FontSize="10" Width="53" Text="0.00"/>
+                FontSize="10" Width="53" Text="0.00" RenderTransformOrigin="0.651,0.7"/>
             <TextBlock HorizontalAlignment="Left" 
                 Margin="784,449,0,0" 
                 TextWrapping="Wrap" 
