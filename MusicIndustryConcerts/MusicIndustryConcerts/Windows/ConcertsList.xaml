@@ -238,11 +238,14 @@
                   Margin="168,178,109,177" 
                   RowDetailsVisibilityMode="VisibleWhenSelected"
                   Background="Transparent"
-                  BorderBrush="Transparent">
+                  BorderBrush="Transparent"
+                  CanUserAddRows="False"
+                  IsHitTestVisible="False"
+                  HeadersVisibility="Column">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="FontWeight" Value="Bold"/>
-                    <Setter Property="FontSize" Value="11"/>  
+                    <Setter Property="FontSize" Value="12"/>
                     <Setter Property="Foreground" Value="#fff"/>
                     <Setter Property="Background" Value="Transparent"/>
                     <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -250,17 +253,16 @@
             </DataGrid.ColumnHeaderStyle>
             <DataGrid.RowStyle>
                 <Style TargetType="{x:Type DataGridRow}">
-                    <Setter Property="FontWeight" Value="Bold"/>
-                    <Setter Property="FontSize" Value="15"/>
-                    <Setter Property="Foreground" Value="#fff"/>
                     <Setter Property="Background" Value="Transparent"></Setter>
                 </Style>
             </DataGrid.RowStyle>
             <DataGrid.CellStyle>
                 <Style TargetType="{x:Type DataGridCell}">
-                    <Setter Property="FontSize" Value="12"/>
+                    <Setter Property="FontSize" Value="11"/>
+                    <Setter Property="FontWeight" Value="ExtraLight"/>
                     <Setter Property="Foreground" Value="#fff"/>
-                    <Setter Property="Background" Value="Transparent"></Setter>
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="BorderBrush" Value="Transparent"/>
                 </Style>
             </DataGrid.CellStyle>
             <DataGrid.Columns>
@@ -274,11 +276,11 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn x:Name="placeIDColumn" Binding="{Binding PlaceID}" Header="Place ID" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="artistIDColumn" Binding="{Binding ArtistID}" Header="Artist ID" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="baseTicketPriceColumn" Binding="{Binding BaseTicketPrice}" Header="Base Ticket Price" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="vIPTicketPriceColumn" Binding="{Binding VIPTicketPrice}" Header="VIPTicket Price" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="remainingCapacityColumn" Binding="{Binding RemainingCapacity}" Header="Capacity" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="placeIDColumn" Binding="{Binding PlaceID}" Header="Place ID" Width="*"/>
+                <DataGridTextColumn x:Name="artistIDColumn" Binding="{Binding ArtistID}" Header="Artist ID" Width="*"/>
+                <DataGridTextColumn x:Name="baseTicketPriceColumn" Binding="{Binding BaseTicketPrice}" Header="Base Ticket Price" Width="*"/>
+                <DataGridTextColumn x:Name="vIPTicketPriceColumn" Binding="{Binding VIPTicketPrice}" Header="VIP Ticket Price" Width="*"/>
+                <DataGridTextColumn x:Name="remainingCapacityColumn" Binding="{Binding RemainingCapacity}" Header="Capacity" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

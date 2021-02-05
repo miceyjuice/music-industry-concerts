@@ -50,17 +50,17 @@ namespace MusicIndustryConcerts.Windows
 
         private void Artist_btn_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("Windows/ArtistAdd.xaml", UriKind.Relative));
+            this.NavigationService.Navigate(new Uri("Windows/ArtistsList.xaml", UriKind.Relative));
         }
 
         private void Tickets_btn_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("Windows/TicketOrderAdd.xaml", UriKind.Relative));
+            this.NavigationService.Navigate(new Uri("Windows/TicketOrdersList.xaml", UriKind.Relative));
         }
 
         private void Concerts_btn_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("Windows/ConcertAdd.xaml", UriKind.Relative));
+            this.NavigationService.Navigate(new Uri("Windows/ConcertsList.xaml", UriKind.Relative));
         }
 
         private void Home_btn_Click(object sender, RoutedEventArgs e)
@@ -68,10 +68,6 @@ namespace MusicIndustryConcerts.Windows
             this.NavigationService.Navigate(new Uri("Windows/MainView.xaml", UriKind.Relative));
         }
 
-        private void placesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
 
     }
 }

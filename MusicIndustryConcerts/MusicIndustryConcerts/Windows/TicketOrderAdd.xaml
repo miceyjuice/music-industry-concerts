@@ -42,6 +42,42 @@
                      FontSize="20"
                      Foreground="#fff"
                      Padding="15,8,0,0"/>
+            <TextBox x:Name="ticketLastNameInput" 
+                        HorizontalAlignment="Center"  
+                        TextWrapping="Wrap" 
+                        VerticalAlignment="Center" 
+                        Width="318" 
+                        BorderBrush="#4277d4" 
+                        Height="47" 
+                        Margin="584,226,98,447"
+                        Background="Transparent"
+                        FontSize="20"
+                        Foreground="#fff"
+                        Padding="15,8,0,0" />
+            <!--TODO Creating custom style for a combobox-->
+            <ComboBox x:Name="ticketConcertInput" 
+                     Height="46" 
+                     Margin="168,350,514,0"  
+                     VerticalAlignment="Top" 
+                     Width="318" 
+                     BorderBrush="Aqua"
+                     HorizontalAlignment="Center"
+                     Background="Transparent"
+                     FontSize="20"
+                     Foreground="#fff"
+                     Padding="15,8,0,0"/>
+            <TextBox x:Name="ticketEmailInput" 
+                HorizontalAlignment="Center"  
+                TextWrapping="Wrap" 
+                VerticalAlignment="Center" 
+                Width="318" 
+                BorderBrush="#4277d4" 
+                Height="47" 
+                Margin="584,350,98,323"
+                Background="Transparent"
+                FontSize="20"
+                Foreground="#fff"
+                Padding="15,8,0,0" />
             <TextBlock HorizontalAlignment="Left" 
                        Margin="168,194,0,0" 
                        TextWrapping="Wrap" 
@@ -84,18 +120,7 @@
                        FontFamily="Poppins" 
                        FontSize="50" 
                        Foreground="#fff" Width="431" Text="Reserve a ticket"/>
-            <!--TODO Creating custom style for a combobox-->
-            <ComboBox x:Name="ticketConcertInput" 
-                     Height="46" 
-                     Margin="168,350,514,0"  
-                     VerticalAlignment="Top" 
-                     Width="318" 
-                     BorderBrush="Aqua"
-                     HorizontalAlignment="Center"
-                     Background="Transparent"
-                     FontSize="20"
-                     Foreground="#fff"
-                     Padding="15,8,0,0"/>
+            
             <CheckBox x:Name="ticketVipCheckbox" 
                       Content="VIP ticket" 
                       HorizontalAlignment="Center" 
@@ -121,18 +146,7 @@
                 FontFamily="Poppins"
                 Foreground="#fff"
                 FontSize="18" Text="Last name"/>
-            <TextBox x:Name="ticketLastNameInput" 
-                HorizontalAlignment="Center"  
-                TextWrapping="Wrap" 
-                VerticalAlignment="Center" 
-                Width="318" 
-                BorderBrush="#4277d4" 
-                Height="47" 
-                Margin="584,226,98,447"
-                Background="Transparent"
-                FontSize="20"
-                Foreground="#fff"
-                Padding="15,8,0,0" />
+            
             <TextBlock HorizontalAlignment="Left" 
                 Margin="584,318,0,0" 
                 TextWrapping="Wrap" 
@@ -140,18 +154,7 @@
                 FontFamily="Poppins"
                 Foreground="#fff"
                 FontSize="18" Text="E-mail"/>
-            <TextBox x:Name="ticketEmailInput" 
-                HorizontalAlignment="Center"  
-                TextWrapping="Wrap" 
-                VerticalAlignment="Center" 
-                Width="318" 
-                BorderBrush="#4277d4" 
-                Height="47" 
-                Margin="584,350,98,323"
-                Background="Transparent"
-                FontSize="20"
-                Foreground="#fff"
-                Padding="15,8,0,0" />
+            
 
         </Grid>
 

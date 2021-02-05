@@ -239,11 +239,10 @@
                   RowDetailsVisibilityMode="VisibleWhenSelected"
                   Background="Transparent"
                   BorderBrush="Transparent"
-                  CanUserAddRows="False">
+                  CanUserAddRows="False"
+                  HeadersVisibility="Column">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
-                    <Setter Property="FontWeight" Value="Bold"/>
-                    <Setter Property="FontSize" Value="11"/>
                     <Setter Property="Foreground" Value="#fff"/>
                     <Setter Property="Background" Value="Transparent"/>
                     <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -251,15 +250,13 @@
             </DataGrid.ColumnHeaderStyle>
             <DataGrid.RowStyle>
                 <Style TargetType="{x:Type DataGridRow}">
-                    <Setter Property="FontWeight" Value="Bold"/>
-                    <Setter Property="FontSize" Value="15"/>
-                    <Setter Property="Foreground" Value="#fff"/>
                     <Setter Property="Background" Value="Transparent"></Setter>
                 </Style>
             </DataGrid.RowStyle>
             <DataGrid.CellStyle>
                 <Style TargetType="{x:Type DataGridCell}">
-                    <Setter Property="FontSize" Value="12"/>
+                    <Setter Property="FontSize" Value="11"/>
+                    <Setter Property="FontWeight" Value="ExtraLight"/>
                     <Setter Property="Foreground" Value="#fff"/>
                     <Setter Property="Background" Value="Transparent"></Setter>
                 </Style>

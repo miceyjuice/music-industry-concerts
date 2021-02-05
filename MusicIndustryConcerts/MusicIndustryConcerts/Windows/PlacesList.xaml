@@ -239,17 +239,42 @@
                   Margin="168,186,108,146" 
                   RowDetailsVisibilityMode="VisibleWhenSelected"
                   Background="Transparent"
-                  BorderBrush="Transparent">
+                  BorderBrush="Transparent"
+                  CanUserAddRows="False"
+                  HeadersVisibility="Column">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="FontSize" Value="11"/>
+                    <Setter Property="Foreground" Value="#fff"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.RowStyle>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="Foreground" Value="#fff"/>
+                    <Setter Property="Background" Value="Transparent"></Setter>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.CellStyle>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Setter Property="FontSize" Value="11"/>
+                    <Setter Property="FontWeight" Value="ExtraLight"/>
+                    <Setter Property="Foreground" Value="#fff"/>
+                    <Setter Property="Background" Value="Transparent"></Setter>
+                </Style>
+            </DataGrid.CellStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="placeIDColumn" Binding="{Binding PlaceID}" Header="Place ID" IsReadOnly="True" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="placeNameColumn" Binding="{Binding PlaceName}" Header="Place Name" Width="*"/>
-                <DataGridTextColumn x:Name="capacityColumn" Binding="{Binding Capacity}" Header="Capacity" Width="SizeToHeader"/>
-                <DataGridCheckBoxColumn x:Name="barAreaColumn" Binding="{Binding BarArea}" Header="Bar Area" Width="SizeToHeader"/>
-                <DataGridCheckBoxColumn x:Name="vIPAreaColumn" Binding="{Binding VIPArea}" Header="VIPArea" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="openingHourColumn" Binding="{Binding OpeningHour}" Header="Opening Hour" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="closingHourColumn" Binding="{Binding ClosingHour}" Header="Closing Hour" Width="SizeToHeader"/>
-                <DataGridCheckBoxColumn x:Name="adultsOnlyColumn" Binding="{Binding AdultsOnly}" Header="Adults Only" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="rentalPriceColumn" Binding="{Binding RentalPrice}" Header="Rental Price" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="capacityColumn" Binding="{Binding Capacity}" Header="Capacity" Width="*"/>
+                <DataGridCheckBoxColumn x:Name="barAreaColumn" Binding="{Binding BarArea}" Header="Bar Area" Width="*"/>
+                <DataGridCheckBoxColumn x:Name="vIPAreaColumn" Binding="{Binding VIPArea}" Header="VIPArea" Width="*"/>
+                <DataGridTextColumn x:Name="openingHourColumn" Binding="{Binding OpeningHour}" Header="Opening Hour" Width="*"/>
+                <DataGridTextColumn x:Name="closingHourColumn" Binding="{Binding ClosingHour}" Header="Closing Hour" Width="*"/>
+                <DataGridCheckBoxColumn x:Name="adultsOnlyColumn" Binding="{Binding AdultsOnly}" Header="Adults Only" Width="*"/>
+                <DataGridTextColumn x:Name="rentalPriceColumn" Binding="{Binding RentalPrice}" Header="Rental Price" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
 

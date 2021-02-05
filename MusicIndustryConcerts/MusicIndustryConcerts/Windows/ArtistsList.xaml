@@ -100,7 +100,7 @@
                             <Button x:Name="Place_btn"
                                     Width="30"
                                     Height="30"
-                                    Margin="31,0,0,0">
+                                    Margin="31,0,0,0" Click="Place_btn_Click">
 
                                 <Button.Background>
 
@@ -239,17 +239,42 @@
                   AutoGenerateColumns="False" 
                   EnableRowVirtualization="True" 
                   ItemsSource="{Binding}" 
-                  Margin="173,180,121,287" 
+                  Margin="173,180,110,173" 
                   RowDetailsVisibilityMode="VisibleWhenSelected" 
                   Background="Transparent" 
-                  BorderBrush="Transparent">
+                  BorderBrush="Transparent"
+                  CanUserAddRows="False"
+                  HeadersVisibility="Column">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="FontSize" Value="11"/>
+                    <Setter Property="Foreground" Value="#fff"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.RowStyle>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="Foreground" Value="#fff"/>
+                    <Setter Property="Background" Value="Transparent"></Setter>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.CellStyle>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Setter Property="FontSize" Value="11"/>
+                    <Setter Property="FontWeight" Value="ExtraLight"/>
+                    <Setter Property="Foreground" Value="#fff"/>
+                    <Setter Property="Background" Value="Transparent"></Setter>
+                </Style>
+            </DataGrid.CellStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="artistIDColumn" Binding="{Binding ArtistID}" Header="Artist ID" IsReadOnly="True" Width="60"/>
                 <DataGridTextColumn x:Name="artistNameColumn" Binding="{Binding ArtistName}" Header="Artist Name" Width="*"/>
-                <DataGridTextColumn x:Name="musicGenreColumn" Binding="{Binding MusicGenre}" Header="Music Genre" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="performancePriceColumn" Binding="{Binding PerformancePrice}" Header="Performance Price" Width="SizeToHeader"/>
-                <DataGridCheckBoxColumn x:Name="explicitContentColumn" Binding="{Binding ExplicitContent}" Header="Explicit Content" Width="SizeToHeader"/>
-                <DataGridCheckBoxColumn x:Name="artistAvailabilityColumn" Binding="{Binding ArtistAvailability}" Header="Artist Availability" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="musicGenreColumn" Binding="{Binding MusicGenre}" Header="Music Genre" Width="*"/>
+                <DataGridTextColumn x:Name="performancePriceColumn" Binding="{Binding PerformancePrice}" Header="Performance Price" Width="*"/>
+                <DataGridCheckBoxColumn x:Name="explicitContentColumn" Binding="{Binding ExplicitContent}" Header="Explicit Content" Width="*"/>
+                <DataGridCheckBoxColumn x:Name="artistAvailabilityColumn" Binding="{Binding ArtistAvailability}" Header="Artist Availability" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
 
