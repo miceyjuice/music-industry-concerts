@@ -16,26 +16,25 @@ using System.Windows.Shapes;
 namespace MusicIndustryConcerts.Windows
 {
     /// <summary>
-    /// Logika interakcji dla klasy PlacesList.xaml
+    /// Logika interakcji dla klasy ArtistsList.xaml
     /// </summary>
-    public partial class PlacesList : Page
+    public partial class ArtistsList : Page
     {
-        public PlacesList()
+        private readonly MusicIndustryConcertsEntities context = new MusicIndustryConcertsEntities();
+        public ArtistsList()
         {
             InitializeComponent();
-            ShowPlaces();
+            ShowArtists();
         }
 
-        private void ShowPlaces()
+        private void ShowArtists()
         {
-            var context = new MusicIndustryConcertsEntities();
-
-            placesDataGrid.ItemsSource = context.Places.ToList();
+            artistsDataGrid.ItemsSource = context.Artists.ToList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("Windows/PlaceAdd.xaml", UriKind.Relative));
+            this.NavigationService.Navigate(new Uri("Windows/ArtistAdd.xaml", UriKind.Relative));
         }
 
         private void Close_btn_Click(object sender, RoutedEventArgs e)
@@ -67,11 +66,5 @@ namespace MusicIndustryConcerts.Windows
         {
             this.NavigationService.Navigate(new Uri("Windows/MainView.xaml", UriKind.Relative));
         }
-
-        private void placesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
     }
 }

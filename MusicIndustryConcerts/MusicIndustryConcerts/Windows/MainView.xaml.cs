@@ -37,7 +37,7 @@ namespace MusicIndustryConcerts.Windows
 
         private void Artist_btn_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("Windows/ArtistAdd.xaml", UriKind.Relative));
+            this.NavigationService.Navigate(new Uri("Windows/ArtistsList.xaml", UriKind.Relative));
         }
 
         private void Tickets_btn_Click(object sender, RoutedEventArgs e)

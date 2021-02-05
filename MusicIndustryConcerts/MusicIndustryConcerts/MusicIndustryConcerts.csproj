@@ -103,6 +103,9 @@
     <Compile Include="Windows\ArtistAdd.xaml.cs">
       <DependentUpon>ArtistAdd.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\ArtistsList.xaml.cs">
+      <DependentUpon>ArtistsList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\ConcertAdd.xaml.cs">
       <DependentUpon>ConcertAdd.xaml</DependentUpon>
     </Compile>
@@ -131,6 +134,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Windows\ArtistAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ArtistsList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
