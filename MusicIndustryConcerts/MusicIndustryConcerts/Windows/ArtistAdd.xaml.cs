@@ -20,6 +20,8 @@ namespace MusicIndustryConcerts.Windows
     /// </summary>
     public partial class ArtistAdd : Page
     {
+        private readonly MusicIndustryConcertsEntities context = new MusicIndustryConcertsEntities();
+        private readonly Validation validation = new Validation();
         public ArtistAdd()
         {
             InitializeComponent();
@@ -28,18 +30,20 @@ namespace MusicIndustryConcerts.Windows
 
         private void AddArtist()
         {
-            var context = new MusicIndustryConcertsEntities();
+            if (validation.ValidateFields(new Control[] { artistNameInput, artistMusicGenreInput, artistPerformancePriceInput }))
+            {
+                var newArtist = new Artists()
+                {
+                    ArtistName = artistNameInput.Text,
+                    MusicGenre = artistMusicGenreInput.SelectedValue.ToString(),
+                    PerformancePrice = Convert.ToInt32(artistPerformancePriceInput.Text),
+                    ExplicitContent = artistExplicitCheckbox.IsChecked ?? false,
+                    ArtistAvailability = artistAvailabilityCheckbox.IsChecked ?? false
+                };
 
-            var newArtist = new Artists() {
-                ArtistName = artistNameInput.Text,
-                MusicGenre = artistMusicGenreInput.SelectedValue.ToString(),
-                PerformancePrice = Convert.ToInt32(artistPerformancePriceInput.Text),
-                ExplicitContent = artistExplicitCheckbox.IsChecked ?? false,
-                ArtistAvailability = artistAvailabilityCheckbox.IsChecked ?? false
-            };
-
-            context.Artists.Add(newArtist);
-            context.SaveChanges();
+                context.Artists.Add(newArtist);
+                context.SaveChanges();
+            }
         }
 
         private void FillGenres()

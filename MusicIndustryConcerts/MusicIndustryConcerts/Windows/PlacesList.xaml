@@ -1,14 +1,20 @@
-﻿<Page x:Class="MusicIndustryConcerts.Windows.PlacesList"
+﻿<Page
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MusicIndustryConcerts.Windows"
+      xmlns:MusicIndustryConcerts="clr-namespace:MusicIndustryConcerts" x:Class="MusicIndustryConcerts.Windows.PlacesList"
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1000 "
       Title="PlacesList">
 
-    <Grid Background="#333333" >
+    <Page.Resources>
+        <MusicIndustryConcerts:MusicIndustryConcertsDataSet x:Key="musicIndustryConcertsDataSet"/>
+        <CollectionViewSource x:Key="placesViewSource" Source="{Binding Places, Source={StaticResource musicIndustryConcertsDataSet}}"/>
+    </Page.Resources>
+
+    <Grid Background="#333333" DataContext="{StaticResource placesViewSource}" >
 
         <Grid>
 
@@ -19,24 +25,7 @@
 
             </Grid.Background>
 
-            <ListView x:Name="placesList" 
-                      Background="Transparent"
-                      Margin="170,200,80,151" SelectionChanged="placesList_SelectionChanged">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"/>
-                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
-                        <GridViewColumn Header="Capacity" DisplayMemberBinding="{Binding Capacity}"/>
-                        <GridViewColumn Header="Rental price" DisplayMemberBinding="{Binding RentalPrice}"/>
-                        <GridViewColumn Header="Openning hour" DisplayMemberBinding="{Binding OpeningHour}"/>
-                        <GridViewColumn Header="Closing hour" DisplayMemberBinding="{Binding ClosingHour}"/>
-                        <GridViewColumn Header="Bar area" DisplayMemberBinding="{Binding BarArea}"/>
-                        <GridViewColumn Header="VIP area" DisplayMemberBinding="{Binding VIPArea}"/>
-                    </GridView> 
-                </ListView.View> 
-                </ListView>
-
-                <Button Content="Add new place +" 
+            <Button Content="Add new place +" 
                     Margin="168,611,635,64" 
                     Height="45" Width="197" 
                     FontFamily="Poppins" 
@@ -242,6 +231,20 @@
             </StackPanel>
 
         </Grid>
+
+        <DataGrid x:Name="placesDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="168,186,228,146" RowDetailsVisibilityMode="VisibleWhenSelected" >
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="placeIDColumn" Binding="{Binding PlaceID}" Header="Place ID" IsReadOnly="True" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="placeNameColumn" Binding="{Binding PlaceName}" Header="Place Name" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="capacityColumn" Binding="{Binding Capacity}" Header="Capacity" Width="SizeToHeader"/>
+                <DataGridCheckBoxColumn x:Name="barAreaColumn" Binding="{Binding BarArea}" Header="Bar Area" Width="SizeToHeader"/>
+                <DataGridCheckBoxColumn x:Name="vIPAreaColumn" Binding="{Binding VIPArea}" Header="VIPArea" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="openingHourColumn" Binding="{Binding OpeningHour}" Header="Opening Hour" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="closingHourColumn" Binding="{Binding ClosingHour}" Header="Closing Hour" Width="SizeToHeader"/>
+                <DataGridCheckBoxColumn x:Name="adultsOnlyColumn" Binding="{Binding AdultsOnly}" Header="Adults Only" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="rentalPriceColumn" Binding="{Binding RentalPrice}" Header="Rental Price" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Page>

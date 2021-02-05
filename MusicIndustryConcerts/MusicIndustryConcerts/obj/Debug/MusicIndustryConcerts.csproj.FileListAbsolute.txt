@@ -56,3 +56,4 @@ D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\
 D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\obj\Debug\Windows\TicketOrderAdd.baml
 D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\obj\Debug\Windows\PlacesList.g.cs
 D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\obj\Debug\Windows\PlacesList.baml
+D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\obj\Debug\GeneratedInternalTypeHelper.g.cs

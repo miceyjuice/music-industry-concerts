@@ -73,6 +73,11 @@
     <Compile Include="Concerts.cs">
       <DependentUpon>MusicIndustryConcertsModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="MusicIndustryConcertsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MusicIndustryConcertsDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MusicIndustryConcertsModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -172,6 +177,17 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MusicIndustryConcertsModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="MusicIndustryConcertsDataSet.xsc">
+      <DependentUpon>MusicIndustryConcertsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MusicIndustryConcertsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MusicIndustryConcertsDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MusicIndustryConcertsDataSet.xss">
+      <DependentUpon>MusicIndustryConcertsDataSet.xsd</DependentUpon>
+    </None>
     <None Include="MusicIndustryConcertsModel.edmx.diagram">
       <DependentUpon>MusicIndustryConcertsModel.edmx</DependentUpon>
     </None>

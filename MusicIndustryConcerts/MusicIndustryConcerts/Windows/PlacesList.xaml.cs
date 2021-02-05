@@ -31,23 +31,9 @@ namespace MusicIndustryConcerts.Windows
             var context = new MusicIndustryConcertsEntities();
             var gridView = new GridView();
 
-            placesList.View = gridView;
+            placesDataGrid.ItemsSource = context.Places.ToList();
 
-            foreach(var rowik in context.Places)
-            {
-                var lista = new ListView();
-                
-                string[] row = { 
-                    rowik.PlaceID.ToString(), 
-                    rowik.PlaceName, 
-                    rowik.RentalPrice.ToString(), 
-                    rowik.OpeningHour.ToString(), 
-                    rowik.ClosingHour.ToString(), 
-                    rowik.VIPArea ? "Yes" : "No",
-                    rowik.BarArea ? "Yes" : "No"
-                };
-                placesList.Items.Add(row);
-            }
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -89,5 +75,6 @@ namespace MusicIndustryConcerts.Windows
         {
 
         }
+
     }
 }

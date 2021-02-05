@@ -57,6 +57,7 @@ namespace MusicIndustryConcerts.Windows
 
                 context.Places.Add(newPlace);
                 context.SaveChanges();
+                this.NavigationService.Navigate(new Uri("Windows/PlacesList.xaml", UriKind.Relative));
             }
         }
 

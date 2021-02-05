@@ -32,12 +32,9 @@ namespace MusicIndustryConcerts.Windows
 
         private void FillConcerts()
         {
-
             foreach (var rowik in context.Concerts)
             {
-                var concertInfo = $"{rowik.ConcertID} | {rowik.Places.PlaceName} | {rowik.Artists.ArtistName}";
-
-                
+                var concertInfo = $"{rowik.ConcertID} |  {rowik.Artists.ArtistName} | {rowik.Places.PlaceName}";
 
                 ticketConcertInput.Items.Add(concertInfo);
             }
