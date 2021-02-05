@@ -4,20 +4,17 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MusicIndustryConcerts.Windows"
-      xmlns:MusicIndustryConcerts="clr-namespace:MusicIndustryConcerts" x:Class="MusicIndustryConcerts.Windows.ArtistsList"
+      xmlns:MusicIndustryConcerts="clr-namespace:MusicIndustryConcerts" x:Class="MusicIndustryConcerts.Windows.TicketOrdersList"
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1000"
-      Title="ArtistsList">
+      Title="TicketOrdersList">
 
     <Page.Resources>
-        <SolidColorBrush x:Key="GotFocusColor" Color="Green" />
-        <SolidColorBrush x:Key="LostFocusColor" Color="Transparent" />
-
-        
         <MusicIndustryConcerts:MusicIndustryConcertsDataSet x:Key="musicIndustryConcertsDataSet"/>
-        <CollectionViewSource x:Key="artistsViewSource" Source="{Binding Artists, Source={StaticResource musicIndustryConcertsDataSet}}"/>
+        <CollectionViewSource x:Key="ticketOrdersViewSource" Source="{Binding TicketOrders, Source={StaticResource musicIndustryConcertsDataSet}}"/>
     </Page.Resources>
-    <Grid Background="#333333" DataContext="{StaticResource artistsViewSource}">
+
+    <Grid Background="#333333" DataContext="{StaticResource ticketOrdersViewSource}">
 
         <Grid>
 
@@ -28,9 +25,9 @@
 
             </Grid.Background>
 
-            <Button Content="Add new artist +" 
-                    Margin="168,611,635,64" 
-                    Height="45" Width="197" 
+            <Button Content="Reserve a ticket +" 
+                    Margin="168,611,584,64" 
+                    Height="45" Width="248" 
                     FontFamily="Poppins" 
                     FontSize="18"
                     Click="Button_Click" 
@@ -40,12 +37,12 @@
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Center"/>
             <TextBlock HorizontalAlignment="Center" 
-                       Margin="170 ,72,476,0" 
+                       Margin="170,72,221,0" 
                        TextWrapping="Wrap" 
                        VerticalAlignment="Top" 
                        FontFamily="Poppins" 
                        FontSize="50" 
-                       Foreground="#fff" Width="355" Text="List of places"/>
+                       Foreground="#fff" Width="609" Text="List of reserved tickets"/>
 
         </Grid>
 
@@ -100,7 +97,7 @@
                             <Button x:Name="Place_btn"
                                     Width="30"
                                     Height="30"
-                                    Margin="31,0,0,0">
+                                    Margin="31,0,0,0" Click="Place_btn_Click">
 
                                 <Button.Background>
 
@@ -234,24 +231,48 @@
             </StackPanel>
 
         </Grid>
-
-        <DataGrid x:Name="artistsDataGrid" 
+        <DataGrid x:Name="ticketOrdersDataGrid" 
                   AutoGenerateColumns="False" 
                   EnableRowVirtualization="True" 
                   ItemsSource="{Binding}" 
-                  Margin="173,180,121,287" 
-                  RowDetailsVisibilityMode="VisibleWhenSelected" 
-                  Background="Transparent" 
-                  BorderBrush="Transparent">
+                  Margin="168,213,110,195" 
+                  RowDetailsVisibilityMode="VisibleWhenSelected"
+                  Background="Transparent"
+                  BorderBrush="Transparent"
+                  CanUserAddRows="False">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="FontSize" Value="11"/>
+                    <Setter Property="Foreground" Value="#fff"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.RowStyle>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="FontSize" Value="15"/>
+                    <Setter Property="Foreground" Value="#fff"/>
+                    <Setter Property="Background" Value="Transparent"></Setter>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.CellStyle>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Setter Property="FontSize" Value="12"/>
+                    <Setter Property="Foreground" Value="#fff"/>
+                    <Setter Property="Background" Value="Transparent"></Setter>
+                </Style>
+            </DataGrid.CellStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="artistIDColumn" Binding="{Binding ArtistID}" Header="Artist ID" IsReadOnly="True" Width="60"/>
-                <DataGridTextColumn x:Name="artistNameColumn" Binding="{Binding ArtistName}" Header="Artist Name" Width="*"/>
-                <DataGridTextColumn x:Name="musicGenreColumn" Binding="{Binding MusicGenre}" Header="Music Genre" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="performancePriceColumn" Binding="{Binding PerformancePrice}" Header="Performance Price" Width="SizeToHeader"/>
-                <DataGridCheckBoxColumn x:Name="explicitContentColumn" Binding="{Binding ExplicitContent}" Header="Explicit Content" Width="SizeToHeader"/>
-                <DataGridCheckBoxColumn x:Name="artistAvailabilityColumn" Binding="{Binding ArtistAvailability}" Header="Artist Availability" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="orderIDColumn" Binding="{Binding OrderID}" Header="Order ID" IsReadOnly="True" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="concertIDColumn" Binding="{Binding ConcertID}" Header="Concert ID" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="firstNameColumn" Binding="{Binding FirstName}" Header="First Name" Width="*"/>
+                <DataGridTextColumn x:Name="lastNameColumn" Binding="{Binding LastName}" Header="Last Name" Width="*"/>
+                <DataGridCheckBoxColumn x:Name="vIPTicketColumn" Binding="{Binding VIPTicket}" Header="VIPTicket" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="mailColumn" Binding="{Binding Mail}" Header="Mail" Width="*"/>
+                <DataGridTextColumn x:Name="phoneNumberColumn" Binding="{Binding PhoneNumber}" Header="Phone Number" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-
     </Grid>
 </Page>

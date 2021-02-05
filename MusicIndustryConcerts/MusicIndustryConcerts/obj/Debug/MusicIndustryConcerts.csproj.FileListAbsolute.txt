@@ -59,3 +59,7 @@ D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\
 D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\obj\Debug\Windows\ArtistsList.g.cs
 D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\obj\Debug\Windows\ArtistsList.baml
+D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\obj\Debug\Windows\ConcertsList.g.cs
+D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\obj\Debug\Windows\ConcertsList.baml
+D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\obj\Debug\Windows\TicketOrdersList.g.cs
+D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\obj\Debug\Windows\TicketOrdersList.baml

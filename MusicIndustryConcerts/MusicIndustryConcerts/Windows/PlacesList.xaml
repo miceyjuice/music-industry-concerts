@@ -232,10 +232,17 @@
 
         </Grid>
 
-        <DataGrid x:Name="placesDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="168,186,228,146" RowDetailsVisibilityMode="VisibleWhenSelected" >
+        <DataGrid x:Name="placesDataGrid" 
+                  AutoGenerateColumns="False" 
+                  EnableRowVirtualization="True" 
+                  ItemsSource="{Binding}" 
+                  Margin="168,186,108,146" 
+                  RowDetailsVisibilityMode="VisibleWhenSelected"
+                  Background="Transparent"
+                  BorderBrush="Transparent">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="placeIDColumn" Binding="{Binding PlaceID}" Header="Place ID" IsReadOnly="True" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="placeNameColumn" Binding="{Binding PlaceName}" Header="Place Name" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="placeNameColumn" Binding="{Binding PlaceName}" Header="Place Name" Width="*"/>
                 <DataGridTextColumn x:Name="capacityColumn" Binding="{Binding Capacity}" Header="Capacity" Width="SizeToHeader"/>
                 <DataGridCheckBoxColumn x:Name="barAreaColumn" Binding="{Binding BarArea}" Header="Bar Area" Width="SizeToHeader"/>
                 <DataGridCheckBoxColumn x:Name="vIPAreaColumn" Binding="{Binding VIPArea}" Header="VIPArea" Width="SizeToHeader"/>
