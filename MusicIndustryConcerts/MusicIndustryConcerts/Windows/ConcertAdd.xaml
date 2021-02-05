@@ -9,7 +9,6 @@
       Title="ConcertAdd">
 
     <Page.Resources>
-
         <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -44,6 +43,81 @@
         <ControlTemplate x:Key="ComboBoxTextBox" TargetType="{x:Type TextBox}">
             <Border x:Name="PART_ContentHost" Focusable="False" Background="{TemplateBinding Background}" />
         </ControlTemplate>
+        <Style TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                            <Grid>
+                                <Rectangle x:Name="background"
+                                   Fill="{TemplateBinding Background}"/>
+                                <ContentPresenter
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="background" Property="Opacity" Value="0.8"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+         
+        <Style TargetType="{x:Type DatePicker}">
+            <Style.Resources>
+                <Style TargetType="DatePickerTextBox">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                </Style>
+            </Style.Resources>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Style.Triggers>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="styleDatePicker" TargetType="{x:Type DatePicker}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DatePicker}">
+                        <Grid x:Name="PART_Root">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <DatePickerTextBox x:Name="PART_TextBox"
+                                       BorderBrush="{TemplateBinding BorderBrush}"
+                                       BorderThickness="{TemplateBinding BorderThickness}"
+                                       HorizontalContentAlignment="Stretch"
+                                       Padding="{TemplateBinding Padding}"
+                                       VerticalContentAlignment="Center"
+                                       Visibility="Visible"
+                                       Grid.Column="0">
+                            </DatePickerTextBox>
+                            <Button x:Name="PART_Button">
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type Button}">
+                                                    <!-- Do button template and triggers here -->
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                            <Popup x:Name="PART_Popup" StaysOpen="False" AllowsTransparency="True" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
         <Style x:Key="{x:Type ComboBox}" TargetType="{x:Type ComboBox}">
             <Setter Property="SnapsToDevicePixels" Value="true"/>
@@ -236,7 +310,7 @@
                        FontFamily="Poppins" 
                        FontSize="50" 
                        Foreground="#fff" Width="448" Text="Create a concert"/>
-            <DatePicker x:Name="concertDateInput" 
+            <DatePicker x:Name="concertDateInput"
                      Height="47" 
                      Margin="168,350,514,0" 
                      VerticalAlignment="Top" 
@@ -246,7 +320,61 @@
                      Background="Transparent"
                      FontSize="20"
                      Foreground="#fff"
-                     Padding="15,8,0,0"/>
+                     Padding="15,8,0,0">
+                <DatePicker.Resources>
+                    <Style TargetType="DatePickerTextBox">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type DatePickerTextBox}">
+                                    <Grid>
+                                        <Grid.Resources>
+                                            <SolidColorBrush x:Key="WatermarkBrush" Color="#fff"/>
+                                        </Grid.Resources>
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup x:Name="CommonStates">
+                                                <VisualStateGroup.Transitions>
+                                                    <VisualTransition GeneratedDuration="0"/>
+                                                    <VisualTransition GeneratedDuration="0:0:0.1" To="MouseOver"/>
+                                                </VisualStateGroup.Transitions>
+                                                <VisualState x:Name="Normal"/>
+                                                <VisualState x:Name="MouseOver" />
+                                            </VisualStateGroup>
+                                            <VisualStateGroup x:Name="WatermarkStates">
+                                                <VisualStateGroup.Transitions>
+                                                    <VisualTransition GeneratedDuration="0"/>
+                                                </VisualStateGroup.Transitions>
+                                                <VisualState x:Name="Unwatermarked"/>
+                                                <VisualState x:Name="Watermarked">
+                                                    <Storyboard>
+                                                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ContentElement"/>
+                                                        <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_Watermark"/>
+                                                    </Storyboard>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                            <VisualStateGroup x:Name="FocusStates">
+                                                <VisualStateGroup.Transitions>
+                                                    <VisualTransition GeneratedDuration="0"/>
+                                                </VisualStateGroup.Transitions>
+                                                <VisualState x:Name="Unfocused"/>
+                                                <VisualState x:Name="Focused" />
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>
+                                        <Border x:Name="Border" BorderBrush="Transparent" BorderThickness="{TemplateBinding BorderThickness}" Background="Transparent" CornerRadius="1" Opacity="1" Padding="{TemplateBinding Padding}">
+                                            <Grid x:Name="WatermarkContent" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                                <Border x:Name="ContentElement" BorderBrush="Transparent" BorderThickness="1"/>
+                                                <Border x:Name="watermark_decorator" BorderBrush="Transparent" BorderThickness="1">
+                                                    <ContentControl x:Name="PART_Watermark" Focusable="False" IsHitTestVisible="False" Opacity="0" Padding="2"/>
+                                                </Border>
+                                                <ScrollViewer x:Name="PART_ContentHost" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                            </Grid>
+                                        </Border>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </DatePicker.Resources>
+            </DatePicker>
             <TextBlock HorizontalAlignment="Left" 
                 Margin="585,442,0,0" 
                 TextWrapping="Wrap" 
@@ -373,13 +501,14 @@
                                 Width="230">
 
                             <Button x:Name="Home_btn"
-                                    Width="30"
-                                    Height="30"
-                                    Margin="31,0,0,0" Click="Home_btn_Click">
+                                    Width="95"
+                                    Height="57"
+                                    Margin="0"
+                                    BorderBrush="Transparent" Click="Home_btn_Click">
 
                                 <Button.Background>
 
-                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/home.png" />
+                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/home.png"  Stretch="None"/>
 
                                 </Button.Background>
 
@@ -400,13 +529,14 @@
                                 Width="230">
 
                             <Button x:Name="Place_btn"
-                                    Width="30"
-                                    Height="30"
-                                    Margin="31,0,0,0" Click="Place_btn_Click">
+                                    Width="95"
+                                    Height="57"
+                                    Margin="0"
+                                    BorderBrush="Transparent" Click="Place_btn_Click">
 
                                 <Button.Background>
 
-                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/pin.png" />
+                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/pin.png"  Stretch="None"/>
 
                                 </Button.Background>
 
@@ -427,13 +557,14 @@
                                 Width="230">
 
                             <Button x:Name="Artist_btn"
-                                    Width="30"
-                                    Height="30"
-                                    Margin="31,0,0,0" Click="Artist_btn_Click">
+                                    Width="95"
+                                    Height="57"
+                                    Margin="0"
+                                    BorderBrush="Transparent" Click="Artist_btn_Click">
 
                                 <Button.Background>
 
-                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/artists.png" />
+                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/artists.png"  Stretch="None"/>
 
                                 </Button.Background>
 
@@ -454,14 +585,15 @@
                                 Width="230">
 
                             <Button x:Name="Concerts_btn"
-                                    Width="30"
-                                    Height="30"
-                                    Margin="31,0,0,0" 
+                                    Width="95"
+                                    Height="57"
+                                    Margin="0"
+                                    BorderBrush="Transparent"
                                     Click="Concerts_btn_Click">
 
                                 <Button.Background>
 
-                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/concert.png" />
+                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/concert.png"  Stretch="None"/>
 
                                 </Button.Background>
 
@@ -482,14 +614,15 @@
                                 Width="230">
 
                             <Button x:Name="Tickets_btn"
-                                    Width="30"
-                                    Height="30"
-                                    Margin="31,0,0,0" 
+                                    Width="95"
+                                    Height="57"
+                                    Margin="0"
+                                    BorderBrush="Transparent" 
                                     Click="Tickets_btn_Click">
 
                                 <Button.Background>
 
-                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/tickets.png" />
+                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/tickets.png"  Stretch="None"/>
 
                                 </Button.Background>
 
@@ -511,13 +644,14 @@
 
                             <Button x:Name="Close_btn"
                                     Click="Close_btn_Click" 
-                                    Width="30"
-                                    Height="30"
-                                    Margin="31,0,0,0">
+                                    Width="95"
+                                    Height="57"
+                                    Margin="0"
+                                    BorderBrush="Transparent">
 
                                 <Button.Background>
 
-                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/quit.png"/>
+                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/quit.png" Stretch="None"/>
 
                                 </Button.Background>
 
