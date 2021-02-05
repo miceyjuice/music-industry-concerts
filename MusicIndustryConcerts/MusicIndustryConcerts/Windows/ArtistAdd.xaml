@@ -134,8 +134,6 @@
             <Style.Triggers>
             </Style.Triggers>
         </Style>
-
-        <!-- SimpleStyles: ComboBoxItem -->
         <Style x:Key="{x:Type ComboBoxItem}" TargetType="{x:Type ComboBoxItem}">
             <Setter Property="SnapsToDevicePixels" Value="true"/>
             <Setter Property="Foreground" Value="White"/>
