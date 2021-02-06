@@ -7,7 +7,7 @@
     <Property Name="ArtistID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ArtistName" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="MusicGenre" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="PerformancePrice" Type="int" Nullable="false" />
+    <Property Name="PerformancePrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="ExplicitContent" Type="bit" Nullable="false" />
     <Property Name="ArtistAvailability" Type="bit" Nullable="false" />
   </EntityType>
@@ -19,8 +19,8 @@
     <Property Name="EventDate" Type="smalldatetime" Nullable="false" />
     <Property Name="PlaceID" Type="int" Nullable="false" />
     <Property Name="ArtistID" Type="int" Nullable="false" />
-    <Property Name="BaseTicketPrice" Type="int" Nullable="false" />
-    <Property Name="VIPTicketPrice" Type="int" Nullable="false" />
+    <Property Name="BaseTicketPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="VIPTicketPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="RemainingCapacity" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Places">
@@ -35,7 +35,7 @@
     <Property Name="OpeningHour" Type="int" Nullable="false" />
     <Property Name="ClosingHour" Type="int" Nullable="false" />
     <Property Name="AdultsOnly" Type="bit" Nullable="false" />
-    <Property Name="RentalPrice" Type="int" Nullable="false" />
+    <Property Name="RentalPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
   </EntityType>
   <EntityType Name="TicketOrders">
     <Key>

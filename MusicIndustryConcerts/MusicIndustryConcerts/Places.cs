@@ -28,7 +28,7 @@ namespace MusicIndustryConcerts
         public int OpeningHour { get; set; }
         public int ClosingHour { get; set; }
         public bool AdultsOnly { get; set; }
-        public int RentalPrice { get; set; }
+        public decimal RentalPrice { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Concerts> Concerts { get; set; }

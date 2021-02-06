@@ -7,7 +7,7 @@
     <Property Name="ArtistID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ArtistName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="MusicGenre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="PerformancePrice" Type="Int32" Nullable="false" />
+    <Property Name="PerformancePrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="ExplicitContent" Type="Boolean" Nullable="false" />
     <Property Name="ArtistAvailability" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Concerts" Relationship="Self.FK__Concerts__Artist__4316F928" FromRole="Artists" ToRole="Concerts" />
@@ -20,8 +20,8 @@
     <Property Name="EventDate" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="PlaceID" Type="Int32" Nullable="false" />
     <Property Name="ArtistID" Type="Int32" Nullable="false" />
-    <Property Name="BaseTicketPrice" Type="Int32" Nullable="false" />
-    <Property Name="VIPTicketPrice" Type="Int32" Nullable="false" />
+    <Property Name="BaseTicketPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="VIPTicketPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="RemainingCapacity" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Artists" Relationship="Self.FK__Concerts__Artist__4316F928" FromRole="Concerts" ToRole="Artists" />
     <NavigationProperty Name="Places" Relationship="Self.FK__Concerts__PlaceI__4222D4EF" FromRole="Concerts" ToRole="Places" />
@@ -39,7 +39,7 @@
     <Property Name="OpeningHour" Type="Int32" Nullable="false" />
     <Property Name="ClosingHour" Type="Int32" Nullable="false" />
     <Property Name="AdultsOnly" Type="Boolean" Nullable="false" />
-    <Property Name="RentalPrice" Type="Int32" Nullable="false" />
+    <Property Name="RentalPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
     <NavigationProperty Name="Concerts" Relationship="Self.FK__Concerts__PlaceI__4222D4EF" FromRole="Places" ToRole="Concerts" />
   </EntityType>
   <EntityType Name="TicketOrders">

@@ -194,10 +194,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="MusicIndustryConcertsModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MusicIndustryConcertsModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="MusicIndustryConcertsDataSet.xsc">
       <DependentUpon>MusicIndustryConcertsDataSet.xsd</DependentUpon>
     </None>
@@ -209,6 +205,10 @@
     <None Include="MusicIndustryConcertsDataSet.xss">
       <DependentUpon>MusicIndustryConcertsDataSet.xsd</DependentUpon>
     </None>
+    <EntityDeploy Include="MusicIndustryConcertsModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MusicIndustryConcertsModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="MusicIndustryConcertsModel.edmx.diagram">
       <DependentUpon>MusicIndustryConcertsModel.edmx</DependentUpon>
     </None>
@@ -238,6 +238,8 @@
     <Resource Include="Imgs\ticketbg.png" />
     <Resource Include="Imgs\concertbg.png" />
     <Resource Include="Imgs\placesbg2.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="MusicIndustryConcertsModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MusicIndustryConcertsModel.edmx</DependentUpon>

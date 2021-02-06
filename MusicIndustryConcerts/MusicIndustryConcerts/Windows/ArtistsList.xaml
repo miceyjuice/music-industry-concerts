@@ -68,7 +68,7 @@
                        VerticalAlignment="Top" 
                        FontFamily="Poppins" 
                        FontSize="50" 
-                       Foreground="#fff" Width="355" Text="List of places"/>
+                       Foreground="#fff" Width="355" Text="List of artists"/>
 
         </Grid>
 

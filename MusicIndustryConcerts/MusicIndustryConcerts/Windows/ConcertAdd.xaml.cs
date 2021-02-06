@@ -67,20 +67,19 @@ namespace MusicIndustryConcerts.Windows
                     .Select(u => u.ArtistID)
                     .FirstOrDefault(),
                     EventDate = concertDateInput.SelectedDate.Value,
-                    BaseTicketPrice = Int32.Parse(concertBaseTicketPriceInput.Text),
-                    VIPTicketPrice = Int32.Parse(concertVipTicketPriceInput.Text),
-                    RemainingCapacity = Int32.Parse(concertRemainingCapacityInput.Text)
+                    BaseTicketPrice = Convert.ToDecimal(concertBaseTicketPriceInput.Text),
+                    VIPTicketPrice = Convert.ToDecimal(concertVipTicketPriceInput.Text),
+                    RemainingCapacity = Convert.ToInt32(concertRemainingCapacityInput.Text)
                 };
 
                 context.Concerts.Add(newConcert);
                 context.SaveChanges();
+                this.NavigationService.Navigate(new Uri("Windows/ConcertsList.xaml", UriKind.Relative));
             }
         }
 
         public void CalcSuggestedBaseTicketPrice()
         {
-            //Jezeli wybrane sa wartosci z obu list, wtedy ma wygenerowac 
-            //sugerowaną cenę biletów (Base i VIP) nad odpowiednimi polami
 
             if (concertPlaceNameComboBox.SelectedValue == null || concertArtistNameComboBox.SelectedValue == null || concertRemainingCapacityInput.Text == "") return;
             {
@@ -95,8 +94,8 @@ namespace MusicIndustryConcerts.Windows
 
                 concertBaseTicketPriceSuggested.Text = suggestedPrice.ToString("0.00");
                 concertBaseTicketPriceInput.Text = suggestedPrice.ToString("0.00");
-                concertVipTicketPriceSuggested.Text = Math.Round((suggestedPrice * 1.2), 2).ToString("0.00");
-                concertVipTicketPriceInput.Text = Math.Round((suggestedPrice * 1.2), 2).ToString("0.00");
+                concertVipTicketPriceSuggested.Text = Math.Round((suggestedPrice * 3.1), 2).ToString("0.00");
+                concertVipTicketPriceInput.Text = Math.Round((suggestedPrice * 3.1), 2).ToString("0.00");
             }
         }
 
@@ -131,22 +130,22 @@ namespace MusicIndustryConcerts.Windows
 
         private void Place_btn_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("Windows/PlaceAdd.xaml", UriKind.Relative));
+            this.NavigationService.Navigate(new Uri("Windows/PlacesList.xaml", UriKind.Relative));
         }
 
         private void Artist_btn_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("Windows/ArtistAdd.xaml", UriKind.Relative));
+            this.NavigationService.Navigate(new Uri("Windows/ArtistsList.xaml", UriKind.Relative));
         }
 
         private void Tickets_btn_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("Windows/TicketOrderAdd.xaml", UriKind.Relative));
+            this.NavigationService.Navigate(new Uri("Windows/TicketOrdersList.xaml", UriKind.Relative));
         }
 
         private void Concerts_btn_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("Windows/ConcertAdd.xaml", UriKind.Relative));
+            this.NavigationService.Navigate(new Uri("Windows/ConcertsList.xaml", UriKind.Relative));
         }
 
         private void Home_btn_Click(object sender, RoutedEventArgs e)

@@ -23,7 +23,7 @@ namespace MusicIndustryConcerts
         public int ArtistID { get; set; }
         public string ArtistName { get; set; }
         public string MusicGenre { get; set; }
-        public int PerformancePrice { get; set; }
+        public decimal PerformancePrice { get; set; }
         public bool ExplicitContent { get; set; }
         public bool ArtistAvailability { get; set; }
     

@@ -24,8 +24,8 @@ namespace MusicIndustryConcerts
         public System.DateTime EventDate { get; set; }
         public int PlaceID { get; set; }
         public int ArtistID { get; set; }
-        public int BaseTicketPrice { get; set; }
-        public int VIPTicketPrice { get; set; }
+        public decimal BaseTicketPrice { get; set; }
+        public decimal VIPTicketPrice { get; set; }
         public int RemainingCapacity { get; set; }
     
         public virtual Artists Artists { get; set; }
