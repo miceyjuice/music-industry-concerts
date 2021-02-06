@@ -99,7 +99,9 @@
                             <Button x:Name="Home_btn"
                                     Width="98"
                                     Height="73"
-                                    Margin="0" Click="Home_btn_Click">
+                                    Margin="0"
+                                    BorderBrush="Transparent"  
+                                    Click="Home_btn_Click">
 
                                 <Button.Background>
 
@@ -270,7 +272,7 @@
                   AutoGenerateColumns="False" 
                   EnableRowVirtualization="True" 
                   ItemsSource="{Binding}" 
-                  Margin="168,178,109,177" 
+                  Margin="168,186,108,146" 
                   RowDetailsVisibilityMode="VisibleWhenSelected"
                   Background="Transparent"
                   BorderBrush="Transparent"

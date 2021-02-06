@@ -251,9 +251,11 @@
                                 Width="230">
 
                             <Button x:Name="Home_btn"
-                                    Width="95"
-                                    Height="57"
-                                    Margin="0" Click="Home_btn_Click">
+                                    Width="98"
+                                    Height="73"
+                                    Margin="0"
+                                    BorderBrush="Transparent"  
+                                    Click="Home_btn_Click">
 
                                 <Button.Background>
 
@@ -281,7 +283,8 @@
                                     Width="95"
                                     Height="57"
                                     Margin="0"
-                                    BorderBrush="Transparent">
+                                    BorderBrush="Transparent"
+                                    Click="Place_btn_Click">
 
                                 <Button.Background>
 

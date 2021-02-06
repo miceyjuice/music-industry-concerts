@@ -12,6 +12,29 @@
     <Page.Resources>
         <MusicIndustryConcerts:MusicIndustryConcertsDataSet x:Key="musicIndustryConcertsDataSet"/>
         <CollectionViewSource x:Key="placesViewSource" Source="{Binding Places, Source={StaticResource musicIndustryConcertsDataSet}}"/>
+        <Style TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                            <Grid>
+                                <Rectangle x:Name="background"
+                                   Fill="{TemplateBinding Background}"/>
+                                <ContentPresenter
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="background" Property="Opacity" Value="0.8"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>      
     </Page.Resources>
 
     <Grid Background="#333333" DataContext="{StaticResource placesViewSource}" >
@@ -68,13 +91,15 @@
                                 Width="230">
 
                             <Button x:Name="Home_btn"
-                                    Width="30"
-                                    Height="30"
-                                    Margin="31,0,0,0" Click="Home_btn_Click">
+                                    Width="98"
+                                    Height="73"
+                                    Margin="0"
+                                    BorderBrush="Transparent"
+                                    Click="Home_btn_Click">
 
                                 <Button.Background>
 
-                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/home.png" />
+                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/home.png"  Stretch="None"/>
 
                                 </Button.Background>
 
@@ -95,13 +120,14 @@
                                 Width="230">
 
                             <Button x:Name="Place_btn"
-                                    Width="30"
-                                    Height="30"
-                                    Margin="31,0,0,0">
+                                    Width="95"
+                                    Height="57"
+                                    BorderBrush="Transparent"
+                                    Margin="0">
 
                                 <Button.Background>
 
-                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/pin.png" />
+                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/pin.png"  Stretch="None"/>
 
                                 </Button.Background>
 
@@ -122,14 +148,15 @@
                                 Width="230">
 
                             <Button x:Name="Artist_btn"
-                                    Width="30"
-                                    Height="30"
-                                    Margin="31,0,0,0" 
+                                    Width="95"
+                                    Height="57"
+                                    BorderBrush="Transparent"
+                                    Margin="0"
                                     Click="Artist_btn_Click">
 
                                 <Button.Background>
 
-                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/artists.png" />
+                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/artists.png"  Stretch="None"/>
 
                                 </Button.Background>
 
@@ -150,14 +177,15 @@
                                 Width="230">
 
                             <Button x:Name="Concerts_btn"
-                                    Width="30"
-                                    Height="30"
-                                    Margin="31,0,0,0" 
+                                    Width="95"
+                                    Height="57"
+                                    BorderBrush="Transparent"
+                                    Margin="0"
                                     Click="Concerts_btn_Click">
 
                                 <Button.Background>
 
-                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/concert.png" />
+                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/concert.png"  Stretch="None"/>
 
                                 </Button.Background>
 
@@ -178,14 +206,15 @@
                                 Width="230">
 
                             <Button x:Name="Tickets_btn"
-                                    Width="30"
-                                    Height="30"
-                                    Margin="31,0,0,0" 
+                                    Width="95"
+                                    Height="57"
+                                    BorderBrush="Transparent"
+                                    Margin="0"
                                     Click="Tickets_btn_Click">
 
                                 <Button.Background>
 
-                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/tickets.png" />
+                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/tickets.png"  Stretch="None"/>
 
                                 </Button.Background>
 
@@ -207,13 +236,14 @@
 
                             <Button x:Name="Close_btn"
                                     Click="Close_btn_Click" 
-                                    Width="30"
-                                    Height="30"
-                                    Margin="31,0,0,0">
+                                    Width="95"
+                                    Height="57"
+                                    BorderBrush="Transparent"
+                                    Margin="0">
 
                                 <Button.Background>
 
-                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/quit.png"/>
+                                    <ImageBrush ImageSource="/MusicIndustryConcerts;component/Imgs/quit.png" Stretch="None"/>
 
                                 </Button.Background>
 
