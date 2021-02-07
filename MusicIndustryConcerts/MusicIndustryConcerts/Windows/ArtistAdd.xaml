@@ -253,7 +253,8 @@
                      Background="Transparent"
                      FontSize="20"
                      Foreground="#fff"
-                     Padding="15,8,0,0" />
+                     Padding="15,8,0,0" 
+                     PreviewTextInput="NumberValidationTextBox"/>
             <CheckBox x:Name="artistExplicitCheckbox" 
                       Content="Explicit content" 
                       HorizontalAlignment="Center" 
@@ -299,7 +300,8 @@
                 <Run Text="artist"/>
                 <Run/>
             </TextBlock>
-            <ComboBox x:Name="artistMusicGenreInput" 
+            <Border x:Name="comboBoxBorder" BorderBrush="Transparent" BorderThickness="1" Margin="168,399,514,274">
+                <ComboBox x:Name="artistMusicGenreInput" 
                      Height="46" 
                      Margin="168,400,514,0"  
                      VerticalAlignment="Top" 
@@ -310,7 +312,9 @@
                      FontSize="20"
                      Foreground="#fff"
                      Padding="15,8,0,0">
-            </ComboBox>
+                </ComboBox>
+            </Border>
+            
 
         </Grid>
 

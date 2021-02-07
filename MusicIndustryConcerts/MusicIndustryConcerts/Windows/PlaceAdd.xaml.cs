@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -55,7 +56,11 @@ namespace MusicIndustryConcerts.Windows
                 this.NavigationService.Navigate(new Uri("Windows/PlacesList.xaml", UriKind.Relative));
             }
         }
-
+        public void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
 
         private void Close_btn_Click(object sender, RoutedEventArgs e)
         {

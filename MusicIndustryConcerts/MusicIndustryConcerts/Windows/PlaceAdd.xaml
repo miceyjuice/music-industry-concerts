@@ -105,7 +105,8 @@
                      Background="Transparent"
                      FontSize="20"
                      Foreground="#fff"
-                     Padding="15,8,0,0" />
+                     Padding="15,8,0,0" 
+                     PreviewTextInput="NumberValidationTextBox"/>
             <CheckBox x:Name="placeBarAreaCheckBox" 
                       Content="Bar Area" 
                       HorizontalAlignment="Center" 
@@ -162,7 +163,8 @@
                      Background="Transparent"
                      FontSize="20"
                      Foreground="#fff"
-                     Padding="15,8,0,0"/>
+                     Padding="15,8,0,0"
+                     PreviewTextInput="NumberValidationTextBox"/>
             <TextBlock 
                     HorizontalAlignment="Left" 
                     Margin="584,218,0,0" 
@@ -184,7 +186,9 @@
                      Background="Transparent"
                      FontSize="20"
                      Foreground="#fff"
-                     Padding="15,8,0,0"/>
+                     Padding="15,8,0,0"
+                     PreviewTextInput="NumberValidationTextBox"
+                     MaxLength="2"/>
             <TextBox x:Name="placeClosingHourInput" 
                      HorizontalAlignment="Center"  
                      TextWrapping="Wrap" 
@@ -196,7 +200,9 @@
                      Background="Transparent"
                      FontSize="20"
                      Foreground="#fff"
-                     Padding="15,8,0,0"/>
+                     Padding="15,8,0,0"
+                     PreviewTextInput="NumberValidationTextBox"
+                     MaxLength="2"/>
             <TextBlock HorizontalAlignment="Left" 
                        Margin="771,218,0,0" 
                        TextWrapping="Wrap" 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -38,6 +39,13 @@ namespace MusicIndustryConcerts.Windows
 
                 ticketConcertInput.Items.Add(concertInfo);
             }
+        }
+
+        //\(?\d{3}\)?-? *\d{3}-? *-?\d{4}
+        public void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex(@"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}");
+            e.Handled = regex.IsMatch(e.Text);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

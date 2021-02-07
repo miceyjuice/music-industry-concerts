@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Text.RegularExpressions;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace MusicIndustryConcerts
@@ -20,7 +24,13 @@ namespace MusicIndustryConcerts
         private static  bool ValidateComboBox(ComboBox field)
         {
             //TODO Validate for a custom style
-            if (field.SelectedIndex == -1) return false;
+            if (field.SelectedIndex == -1)
+            {
+                field.Background = new SolidColorBrush(Colors.Red);
+                field.BorderBrush = new SolidColorBrush(Colors.Red);
+
+                return false;
+            }
             return true;
         }
 

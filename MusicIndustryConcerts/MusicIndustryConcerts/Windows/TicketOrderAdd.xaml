@@ -287,7 +287,8 @@
                      Background="Transparent"
                      FontSize="20"
                      Foreground="#fff"
-                     Padding="15,8,0,0" />
+                     Padding="15,8,0,0" 
+                     PreviewTextInput="NumberValidationTextBox"/>
             <TextBlock HorizontalAlignment="Center" 
                        Margin="170,72,399,0" 
                        TextWrapping="Wrap" 

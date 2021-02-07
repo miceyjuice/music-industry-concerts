@@ -302,7 +302,8 @@
                      Background="Transparent"
                      FontSize="20"
                      Foreground="#fff"
-                     Padding="15,8,0,0" />
+                     Padding="15,8,0,0" 
+                     PreviewTextInput="NumberValidationTextBox"/>
             <TextBlock HorizontalAlignment="Center" 
                        Margin="170,72,382,0" 
                        TextWrapping="Wrap" 
@@ -393,7 +394,9 @@
                 Background="Transparent"
                 FontSize="20"
                 Foreground="#fff"
-                Padding="15,8,0,0" TextChanged="concertRemainingCapacityInput_TextChanged" />
+                Padding="15,8,0,0" 
+                TextChanged="concertRemainingCapacityInput_TextChanged" 
+                PreviewTextInput="NumberValidationTextBox"/>
             <TextBlock HorizontalAlignment="Left" 
                 Margin="585,318,0,0" 
                 TextWrapping="Wrap" 
@@ -412,7 +415,8 @@
                 Background="Transparent"
                 FontSize="20"
                 Foreground="#fff"
-                Padding="15,8,0,0" />
+                Padding="15,8,0,0" 
+                PreviewTextInput="NumberValidationTextBox"/>
             <TextBlock HorizontalAlignment="Left" 
                 Margin="585,194,0,0" 
                 TextWrapping="Wrap" 
