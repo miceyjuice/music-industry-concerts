@@ -40,8 +40,6 @@ namespace MusicIndustryConcerts.Windows
                 ticketConcertInput.Items.Add(concertInfo);
             }
         }
-
-        //\(?\d{3}\)?-? *\d{3}-? *-?\d{4}
         public void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex(@"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}");
@@ -55,7 +53,7 @@ namespace MusicIndustryConcerts.Windows
 
         private void ReserveTicket()
         {
-            if (validation.ValidateFields(new Control[] { ticketFirstNameInput, ticketLastNameInput, ticketConcertInput, ticketEmailInput}))
+            if (validation.ValidateFields(new Control[] { ticketFirstNameInput, ticketLastNameInput, ticketConcertInput, ticketEmailInput}) && validation.ValidateMail(ticketEmailInput.ToString()))
             {
                 var newTicket = new TicketOrders
                 {
@@ -70,6 +68,9 @@ namespace MusicIndustryConcerts.Windows
                 context.TicketOrders.Add(newTicket);
                 context.SaveChanges();
                 this.NavigationService.Navigate(new Uri("Windows/TicketOrdersList.xaml", UriKind.Relative));
+            }else if (!validation.ValidateMail(ticketEmailInput.ToString()))
+            {
+                wrongMailText.Visibility = Visibility.Visible;
             }
             
         }

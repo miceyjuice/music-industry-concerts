@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Mail;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,6 +12,19 @@ namespace MusicIndustryConcerts
     public class Validation
     {
 
+        public bool ValidateMail(string mail)
+        {
+            try
+            {
+                MailAddress m = new MailAddress(mail);
+
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
+        }
         private bool ValidateTextBox(TextBox field)
         {
             if (String.IsNullOrWhiteSpace(field.Text))

@@ -44,7 +44,7 @@
         <ControlTemplate x:Key="ComboBoxTextBox" TargetType="{x:Type TextBox}">
             <Border x:Name="PART_ContentHost" Focusable="False" Background="{TemplateBinding Background}" />
         </ControlTemplate>
-        
+
         <Style TargetType="Button">
             <Setter Property="Template">
                 <Setter.Value>
@@ -185,7 +185,7 @@
 
     <Grid Background="#333333" >
 
-        <Grid>
+        <Grid Margin="0,-3,0,3">
 
             <Grid.Background>
 
@@ -288,6 +288,7 @@
                      FontSize="20"
                      Foreground="#fff"
                      Padding="15,8,0,0" 
+                     MaxLength="9"
                      PreviewTextInput="NumberValidationTextBox"/>
             <TextBlock HorizontalAlignment="Center" 
                        Margin="170,72,399,0" 
@@ -296,7 +297,7 @@
                        FontFamily="Poppins" 
                        FontSize="50" 
                        Foreground="#fff" Width="431" Text="Reserve a ticket"/>
-            
+
             <CheckBox x:Name="ticketVipCheckbox" 
                       Content="VIP ticket" 
                       HorizontalAlignment="Center" 
@@ -322,7 +323,7 @@
                 FontFamily="Poppins"
                 Foreground="#fff"
                 FontSize="18" Text="Last name"/>
-            
+
             <TextBlock HorizontalAlignment="Left" 
                 Margin="584,318,0,0" 
                 TextWrapping="Wrap" 
@@ -330,7 +331,16 @@
                 FontFamily="Poppins"
                 Foreground="#fff"
                 FontSize="18" Text="E-mail"/>
-            
+            <TextBlock x:Name="wrongMailText"
+                HorizontalAlignment="Left" 
+                Margin="705,320,0,0" 
+                TextWrapping="Wrap" 
+                VerticalAlignment="Top" 
+                FontFamily="Poppins"
+                Foreground="#fff"
+                Visibility="Hidden"
+                FontSize="14" Text="Niepoprawny adres e-mail!" Width="197"/>
+
 
         </Grid>
 
