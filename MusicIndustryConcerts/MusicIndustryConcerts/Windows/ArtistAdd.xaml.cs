@@ -36,6 +36,12 @@ namespace MusicIndustryConcerts.Windows
                 context.SaveChanges();
                 this.NavigationService.Navigate(new Uri("Windows/ArtistsList.xaml", UriKind.Relative));
             }
+            else
+            {
+                emptyArtistText.Visibility = Visibility.Visible;
+                emptyMusicText.Visibility = Visibility.Visible;
+                emptyPerformanceText.Visibility = Visibility.Visible;
+            }
         }
 
         private void FillGenres()

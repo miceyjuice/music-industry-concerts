@@ -12,6 +12,18 @@ namespace MusicIndustryConcerts
     public class Validation
     {
 
+        public bool ValidateHour(TextBox field)
+        {
+            if (!String.IsNullOrWhiteSpace(field.Text))
+            {
+                if (Convert.ToInt32(field.Text) <= 24 && Convert.ToInt32(field.Text) >= 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
         public bool ValidateMail(string mail)
         {
             try

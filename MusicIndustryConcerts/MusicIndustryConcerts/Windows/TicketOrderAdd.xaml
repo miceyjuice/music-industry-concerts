@@ -333,13 +333,43 @@
                 FontSize="18" Text="E-mail"/>
             <TextBlock x:Name="wrongMailText"
                 HorizontalAlignment="Left" 
-                Margin="705,320,0,0" 
+                Margin="584,402,0,0" 
                 TextWrapping="Wrap" 
                 VerticalAlignment="Top" 
                 FontFamily="Poppins"
-                Foreground="#fff"
+                Foreground="#db3939"
                 Visibility="Hidden"
-                FontSize="14" Text="Niepoprawny adres e-mail!" Width="197"/>
+                FontSize="14" Text="" Width="192"/>
+            <TextBlock x:Name="emptyFirstNameText"
+                HorizontalAlignment="Left" 
+                Margin="170,278,0,0" 
+                TextWrapping="Wrap" 
+                Text="This field cannot be empty" 
+                VerticalAlignment="Top" 
+                FontFamily="Poppins"
+                Foreground="#db3939"
+                FontSize="14"
+                Visibility="Hidden"/>
+            <TextBlock x:Name="emptyLastNameText"
+                HorizontalAlignment="Left" 
+                Margin="584,278,0,0" 
+                TextWrapping="Wrap" 
+                Text="This field cannot be empty" 
+                VerticalAlignment="Top" 
+                FontFamily="Poppins"
+                Foreground="#db3939"
+                FontSize="14"
+                Visibility="Hidden"/>
+            <TextBlock x:Name="emptyConcertText"
+                HorizontalAlignment="Left" 
+                Margin="170,401,0,0" 
+                TextWrapping="Wrap" 
+                Text="This field cannot be empty" 
+                VerticalAlignment="Top" 
+                FontFamily="Poppins"
+                Foreground="#db3939"
+                FontSize="14"
+                Visibility="Hidden"/>
 
 
         </Grid>

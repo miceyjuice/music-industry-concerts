@@ -37,7 +37,9 @@ namespace MusicIndustryConcerts.Windows
         private void AddPlace()
         {
 
-            if (validation.ValidateFields(new Control[] { placeNameInput, placeCapacityInput, placeOpeningHourInput, placeClosingHourInput, placeRentalPriceInput }))
+            if (validation.ValidateFields(new Control[] { placeNameInput, placeCapacityInput, placeOpeningHourInput, placeClosingHourInput, placeRentalPriceInput }) 
+                && validation.ValidateHour(placeOpeningHourInput) 
+                && validation.ValidateHour(placeClosingHourInput))
             {
                 var newPlace = new Places()
                 {
@@ -54,6 +56,26 @@ namespace MusicIndustryConcerts.Windows
                 context.Places.Add(newPlace);
                 context.SaveChanges();
                 this.NavigationService.Navigate(new Uri("Windows/PlacesList.xaml", UriKind.Relative));
+            }
+            else
+            {
+                emptyOpeningText.Text = "This field cannot be empty";
+                emptyClosingText.Text = "This field cannot be empty";
+                emptyCapacityText.Visibility = Visibility.Visible;
+                emptyClosingText.Visibility = Visibility.Visible;
+                emptyOpeningText.Visibility = Visibility.Visible;
+                emptyRentalText.Visibility = Visibility.Visible;
+                emptyPlaceText.Visibility = Visibility.Visible;
+            }
+            if (!validation.ValidateHour(placeOpeningHourInput) && !String.IsNullOrWhiteSpace(placeOpeningHourInput.Text))
+            {
+                emptyOpeningText.Text = "Invalid hour!";
+                emptyOpeningText.Visibility = Visibility.Visible;
+            }
+            if (!validation.ValidateHour(placeClosingHourInput) && !String.IsNullOrWhiteSpace(placeClosingHourInput.Text))
+            {
+                emptyClosingText.Text = "Invalid hour!";
+                emptyClosingText.Visibility = Visibility.Visible;
             }
         }
         public void NumberValidationTextBox(object sender, TextCompositionEventArgs e)

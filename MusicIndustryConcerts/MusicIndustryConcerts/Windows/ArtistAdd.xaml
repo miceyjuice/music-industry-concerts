@@ -300,7 +300,7 @@
                 <Run Text="artist"/>
                 <Run/>
             </TextBlock>
-            <Border x:Name="comboBoxBorder" BorderBrush="Transparent" BorderThickness="1" Margin="168,399,514,274">
+            
                 <ComboBox x:Name="artistMusicGenreInput" 
                      Height="46" 
                      Margin="168,400,514,0"  
@@ -313,8 +313,36 @@
                      Foreground="#fff"
                      Padding="15,8,0,0">
                 </ComboBox>
-            </Border>
-            
+            <TextBlock x:Name="emptyArtistText"
+                HorizontalAlignment="Left" 
+                Margin="170,327,0,0" 
+                TextWrapping="Wrap" 
+                Text="This field cannot be empty" 
+                VerticalAlignment="Top" 
+                FontFamily="Poppins"
+                Foreground="#db3939"
+                FontSize="14"
+                Visibility="Hidden"/>
+            <TextBlock x:Name="emptyPerformanceText"
+                HorizontalAlignment="Left" 
+                Margin="584,327,0,0" 
+                TextWrapping="Wrap" 
+                Text="This field cannot be empty" 
+                VerticalAlignment="Top" 
+                FontFamily="Poppins"
+                Foreground="#db3939"
+                FontSize="14"
+                Visibility="Hidden"/>
+            <TextBlock x:Name="emptyMusicText"
+                HorizontalAlignment="Left" 
+                Margin="170,451,0,0" 
+                TextWrapping="Wrap" 
+                Text="This field cannot be empty" 
+                VerticalAlignment="Top" 
+                FontFamily="Poppins"
+                Foreground="#db3939"
+                FontSize="14"
+                Visibility="Hidden"/>
 
         </Grid>
 

@@ -53,7 +53,7 @@ namespace MusicIndustryConcerts.Windows
 
         private void ReserveTicket()
         {
-            if (validation.ValidateFields(new Control[] { ticketFirstNameInput, ticketLastNameInput, ticketConcertInput, ticketEmailInput}) && validation.ValidateMail(ticketEmailInput.ToString()))
+            if (validation.ValidateFields(new Control[] { ticketFirstNameInput, ticketLastNameInput, ticketConcertInput, ticketEmailInput}) && validation.ValidateMail(ticketEmailInput.Text))
             {
                 var newTicket = new TicketOrders
                 {
@@ -68,11 +68,21 @@ namespace MusicIndustryConcerts.Windows
                 context.TicketOrders.Add(newTicket);
                 context.SaveChanges();
                 this.NavigationService.Navigate(new Uri("Windows/TicketOrdersList.xaml", UriKind.Relative));
-            }else if (!validation.ValidateMail(ticketEmailInput.ToString()))
+            }
+            else
             {
+                wrongMailText.Text = "This field cannot be empty";
+                wrongMailText.Visibility = Visibility.Visible;
+                emptyConcertText.Visibility = Visibility.Visible;
+                emptyFirstNameText.Visibility = Visibility.Visible;
+                emptyLastNameText.Visibility = Visibility.Visible;
+            }
+            if (!validation.ValidateMail(ticketEmailInput.ToString()) && !String.IsNullOrWhiteSpace(ticketEmailInput.Text))
+            {
+                wrongMailText.Text = "Invalid e-mail address!";
                 wrongMailText.Visibility = Visibility.Visible;
             }
-            
+
         }
 
         private void Close_btn_Click(object sender, RoutedEventArgs e)

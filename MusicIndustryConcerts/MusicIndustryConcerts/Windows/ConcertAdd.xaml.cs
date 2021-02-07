@@ -73,6 +73,15 @@ namespace MusicIndustryConcerts.Windows
                 context.SaveChanges();
                 this.NavigationService.Navigate(new Uri("Windows/ConcertsList.xaml", UriKind.Relative));
             }
+            else
+            {
+                emptyArtistText.Visibility = Visibility.Visible;
+                emptyPlaceText.Visibility = Visibility.Visible;
+                emptyDateText.Visibility = Visibility.Visible;
+                emptyBaseTicketText.Visibility = Visibility.Visible;
+                emptyVipTextText.Visibility = Visibility.Visible;
+                emptyCapacityText.Visibility = Visibility.Visible;
+            }
         }
 
         public void CalcSuggestedBaseTicketPrice()
