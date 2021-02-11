@@ -267,7 +267,7 @@
                      FontSize="20"
                      Foreground="#fff"
                      Padding="15,8,0,0"
-                      SelectionChanged="concertPlaceNameComboBox_SelectionChanged"/>
+                      SelectionChanged="ConcertPlaceNameComboBox_SelectionChanged"/>
             <TextBlock HorizontalAlignment="Left" 
                        Margin="168,194,0,0" 
                        TextWrapping="Wrap" 
@@ -395,7 +395,7 @@
                 FontSize="20"
                 Foreground="#fff"
                 Padding="15,8,0,0" 
-                TextChanged="concertRemainingCapacityInput_TextChanged" 
+                TextChanged="ConcertRemainingCapacityInput_TextChanged" 
                 PreviewTextInput="NumberValidationTextBox"/>
             <TextBlock HorizontalAlignment="Left" 
                 Margin="585,318,0,0" 
@@ -434,7 +434,7 @@
                 Background="Transparent"
                 FontSize="20"
                 Foreground="#fff"
-                Padding="15,8,0,0" SelectionChanged="concertArtistNameComboBox_SelectionChanged" />
+                Padding="15,8,0,0" SelectionChanged="ConcertArtistNameComboBox_SelectionChanged" />
             <TextBlock HorizontalAlignment="Left" 
                 Margin="755,324,0,0" 
                 TextWrapping="Wrap" 

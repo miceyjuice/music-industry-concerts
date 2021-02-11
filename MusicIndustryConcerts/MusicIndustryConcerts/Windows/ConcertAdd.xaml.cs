@@ -127,7 +127,7 @@ namespace MusicIndustryConcerts.Windows
                 concertVipTicketPriceInput.Text = Math.Round((suggestedPrice * 3.1), 2).ToString("0.00");
             }
         }
-        private void concertPlaceNameComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ConcertPlaceNameComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var placeName = concertPlaceNameComboBox.SelectedValue.ToString();
             var place = context.Places.First(p => p.PlaceName.Equals(placeName));
@@ -139,13 +139,13 @@ namespace MusicIndustryConcerts.Windows
         }
 
 
-        private void concertArtistNameComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ConcertArtistNameComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             CalcSuggestedBaseTicketPrice();
         }
 
 
-        private void concertRemainingCapacityInput_TextChanged(object sender, TextChangedEventArgs e)
+        private void ConcertRemainingCapacityInput_TextChanged(object sender, TextChangedEventArgs e)
         {
             CalcSuggestedBaseTicketPrice();
         }
