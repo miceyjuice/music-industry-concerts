@@ -9,6 +9,9 @@ namespace MusicIndustryConcerts.Windows
     /// </summary>
     public partial class MainView : Page
     {
+        /// <summary>
+        /// Konstruktor klasy MainView
+        /// </summary>
         public MainView()
         {
             InitializeComponent();

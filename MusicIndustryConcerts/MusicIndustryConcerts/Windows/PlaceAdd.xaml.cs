@@ -13,6 +13,10 @@ namespace MusicIndustryConcerts.Windows
     {
         private readonly MusicIndustryConcertsEntities context = new MusicIndustryConcertsEntities();
         private readonly Validation validation = new Validation();
+
+        /// <summary>
+        /// Konstruktor klasy PlaceAdd
+        /// </summary>
         public PlaceAdd()
         {
             InitializeComponent();
@@ -67,6 +71,12 @@ namespace MusicIndustryConcerts.Windows
                 emptyClosingText.Visibility = Visibility.Visible;
             }
         }
+
+        /// <summary>
+        /// Metoda, dzięki której nie można wpisać w polu niczego prócz cyfr
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");

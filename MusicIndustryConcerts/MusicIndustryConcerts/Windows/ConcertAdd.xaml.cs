@@ -17,7 +17,7 @@ namespace MusicIndustryConcerts.Windows
         private readonly Validation validation = new Validation();
 
         /// <summary>
-        /// Konstruktor klasy
+        /// Konstruktor klasy ConcertAdd
         /// </summary>
         public ConcertAdd()
         {
@@ -27,7 +27,7 @@ namespace MusicIndustryConcerts.Windows
         }
 
         /// <summary>
-        /// 
+        /// Metoda, dzięki której nie można wpisać w polu niczego prócz cyfr
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -127,8 +127,6 @@ namespace MusicIndustryConcerts.Windows
                 concertVipTicketPriceInput.Text = Math.Round((suggestedPrice * 3.1), 2).ToString("0.00");
             }
         }
-
-
         private void concertPlaceNameComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var placeName = concertPlaceNameComboBox.SelectedValue.ToString();

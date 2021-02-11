@@ -9,12 +9,15 @@ namespace MusicIndustryConcerts.Windows
     /// <summary>
     /// Logika interakcji dla klasy TicketOrderAdd.xaml
     /// </summary>
-    /// 
 
     public partial class TicketOrderAdd : Page
     {
         private readonly MusicIndustryConcertsEntities context = new MusicIndustryConcertsEntities();
         private readonly Validation validation = new Validation();
+
+        /// <summary>
+        /// Konstruktor klasy TicketOrderAdd
+        /// </summary>
         public TicketOrderAdd()
         {
             InitializeComponent();
@@ -30,7 +33,7 @@ namespace MusicIndustryConcerts.Windows
                 ticketConcertInput.Items.Add(concertInfo);
             }
         }
-        public void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex(@"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}");
             e.Handled = regex.IsMatch(e.Text);

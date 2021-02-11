@@ -7,11 +7,18 @@ namespace MusicIndustryConcerts
 {
     public class Validation
     {
+        /// <summary>
+        /// Metoda do sprawdzania czy użytkownik wpisał 
+        /// mniejszą bądź równą wartość od maksymalnej
+        /// </summary>
+        /// <param name="desiredCapacity">Żądana ilość miejsc</param>
+        /// <param name="maxCapacity">Maksymalna ilość miejsc w klubie</param>
+        /// <returns></returns>
         public bool ValidateCapacity(int desiredCapacity, int maxCapacity) => desiredCapacity <= maxCapacity;
         /// <summary>
-        /// 
+        /// Sprawdzanie czy użytkownik wpisał poprawną godzinę
         /// </summary>
-        /// <param name="field"></param>
+        /// <param name="field">Pole tekstowe</param>
         /// <returns></returns>
         public bool ValidateHour(TextBox field)
         {
@@ -26,9 +33,9 @@ namespace MusicIndustryConcerts
             return false;
         }
         /// <summary>
-        /// 
+        /// Sprawdzanie czy użytkownik wpisał email w poprawnym formacie
         /// </summary>
-        /// <param name="mail"></param>
+        /// <param name="mail">E-mail podany przez użytkownika</param>
         /// <returns></returns>
         public bool ValidateMail(string mail)
         {
@@ -43,11 +50,6 @@ namespace MusicIndustryConcerts
                 return false;
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="field"></param>
-        /// <returns></returns>
         private bool ValidateTextBox(TextBox field)
         {
             if (String.IsNullOrWhiteSpace(field.Text))
@@ -57,14 +59,8 @@ namespace MusicIndustryConcerts
             }
             return true;
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="field"></param>
-        /// <returns></returns>
         private static  bool ValidateComboBox(ComboBox field)
         {
-            //TODO Validate for a custom style
             if (field.SelectedIndex == -1)
             {
                 field.Background = new SolidColorBrush(Colors.Red);
@@ -74,21 +70,15 @@ namespace MusicIndustryConcerts
             }
             return true;
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="field"></param>
-        /// <returns></returns>
         private bool ValidateDateInput(DatePicker field)
         {
-            //TODO Validate for a custom style
             if (field.SelectedDate == null) return false;
             return true;
         }
         /// <summary>
-        /// 
+        /// Metoda do walidacji pól w formularzu
         /// </summary>
-        /// <param name="controls"></param>
+        /// <param name="controls">Pole tekstowe, lista rozwijalna bądź pole daty</param>
         /// <returns></returns>
         public bool ValidateFields(Control[] controls)
         {

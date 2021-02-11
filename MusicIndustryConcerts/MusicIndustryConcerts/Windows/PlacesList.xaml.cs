@@ -10,6 +10,9 @@ namespace MusicIndustryConcerts.Windows
     /// </summary>
     public partial class PlacesList : Page
     {
+        /// <summary>
+        /// Konstruktor klasy PlaceList
+        /// </summary>
         public PlacesList()
         {
             InitializeComponent();
@@ -57,7 +60,5 @@ namespace MusicIndustryConcerts.Windows
         {
             this.NavigationService.Navigate(new Uri("Windows/MainView.xaml", UriKind.Relative));
         }
-
-
     }
 }

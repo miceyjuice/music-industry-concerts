@@ -11,6 +11,10 @@ namespace MusicIndustryConcerts.Windows
     public partial class TicketOrdersList : Page
     {
         private readonly MusicIndustryConcertsEntities context = new MusicIndustryConcertsEntities();
+
+        /// <summary>
+        /// Konstruktor klasy TicketOrdersList
+        /// </summary>
         public TicketOrdersList()
         {
             InitializeComponent();
