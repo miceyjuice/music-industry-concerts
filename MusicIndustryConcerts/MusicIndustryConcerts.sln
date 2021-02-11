@@ -5,16 +5,20 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicIndustryConcerts", "MusicIndustryConcerts\MusicIndustryConcerts.csproj", "{247591B1-C4A5-4A4C-A9FE-5A4C72B954FC}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{72E89448-DA2B-477F-9C84-070575582FDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{247591B1-C4A5-4A4C-A9FE-5A4C72B954FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{247591B1-C4A5-4A4C-A9FE-5A4C72B954FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{247591B1-C4A5-4A4C-A9FE-5A4C72B954FC}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{247591B1-C4A5-4A4C-A9FE-5A4C72B954FC}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{247591B1-C4A5-4A4C-A9FE-5A4C72B954FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{247591B1-C4A5-4A4C-A9FE-5A4C72B954FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72E89448-DA2B-477F-9C84-070575582FDA}.Debug|Any CPU.ActiveCfg = Debug
+		{72E89448-DA2B-477F-9C84-070575582FDA}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

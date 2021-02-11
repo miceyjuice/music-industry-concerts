@@ -15,6 +15,7 @@ namespace MusicIndustryConcerts.Windows
     {
         private readonly MusicIndustryConcertsEntities context = new MusicIndustryConcertsEntities();
         private readonly Validation validation = new Validation();
+        private int placeCapacity;
 
         /// <summary>
         /// Konstruktor klasy ConcertAdd
@@ -59,17 +60,19 @@ namespace MusicIndustryConcerts.Windows
         }
 
         private void CreateConcert() {
-            var placeCapacity = context.Places
-                .Where(u => u.PlaceName.ToString().Equals(concertPlaceNameComboBox.SelectedValue.ToString()))
-                .Select(u => u.Capacity)
-                .FirstOrDefault();
 
-            if (validation.ValidateFields(new Control[] { concertPlaceNameComboBox, concertArtistNameComboBox, concertDateInput, concertBaseTicketPriceInput, concertVipTicketPriceInput, concertRemainingCapacityInput })) 
-               
+            if (validation.ValidateFields(new Control[] { concertPlaceNameComboBox, concertArtistNameComboBox, concertDateInput, concertBaseTicketPriceInput, concertVipTicketPriceInput, concertRemainingCapacityInput }) 
+                &&
+                validation.ValidateCapacity(concertRemainingCapacityInput.Text, context.Places
+                                        .Where(u => u.PlaceName.ToString().Equals(concertPlaceNameComboBox.SelectedValue.ToString()))
+                                        .Select(u => u.Capacity)
+                                        .FirstOrDefault())) 
             {
-                
-                if(validation.ValidateCapacity(int.Parse(concertRemainingCapacityInput.Text), placeCapacity)){
-                    var newConcert = new Concerts()
+                placeCapacity = context.Places
+                                        .Where(u => u.PlaceName.ToString().Equals(concertPlaceNameComboBox.SelectedValue.ToString()))
+                                        .Select(u => u.Capacity)
+                                        .FirstOrDefault();
+                var newConcert = new Concerts()
                     {
                         PlaceID = context.Places
                                         .Where(u => u.PlaceName.ToString().Equals(concertPlaceNameComboBox.SelectedValue.ToString()))
@@ -88,7 +91,7 @@ namespace MusicIndustryConcerts.Windows
                     context.Concerts.Add(newConcert);
                     context.SaveChanges();
                     this.NavigationService.Navigate(new Uri("Windows/ConcertsList.xaml", UriKind.Relative));
-                }
+               
             }
             else
             {
@@ -100,10 +103,14 @@ namespace MusicIndustryConcerts.Windows
                 emptyCapacityText.Text = "This field cannot be empty";
                 emptyCapacityText.Visibility = Visibility.Visible;
             }
-            if (!validation.ValidateCapacity(int.Parse(concertRemainingCapacityInput.Text), placeCapacity))
+            if (!String.IsNullOrWhiteSpace(concertRemainingCapacityInput.Text))
             {
-                emptyCapacityText.Text = "Cannot enter value higher than max capacity!";
-                emptyCapacityText.Visibility = Visibility.Visible;
+                if(!validation.ValidateCapacity(concertRemainingCapacityInput.Text, placeCapacity))
+                {
+                    emptyCapacityText.Text = "Cannot enter value higher than max capacity!";
+                    emptyCapacityText.Visibility = Visibility.Visible;
+                }
+                
             }
         }
 

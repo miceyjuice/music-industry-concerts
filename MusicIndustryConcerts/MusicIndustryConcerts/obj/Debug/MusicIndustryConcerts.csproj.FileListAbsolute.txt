@@ -30,7 +30,6 @@ D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\
 D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\bin\Debug\EntityFramework.SqlServer.dll
 D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\bin\Debug\EntityFramework.xml
 D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\bin\Debug\EntityFramework.SqlServer.xml
-D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\obj\Debug\MusicIndustryConcerts.csprojAssemblyReference.cache
 D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\obj\Debug\MainWindow.g.cs
 D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\obj\Debug\Windows\ArtistAdd.g.cs
 D:\Projekty\music-industry-concerts\MusicIndustryConcerts\MusicIndustryConcerts\obj\Debug\Windows\MainView.g.cs

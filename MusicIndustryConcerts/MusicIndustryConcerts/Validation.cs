@@ -14,7 +14,7 @@ namespace MusicIndustryConcerts
         /// <param name="desiredCapacity">Żądana ilość miejsc</param>
         /// <param name="maxCapacity">Maksymalna ilość miejsc w klubie</param>
         /// <returns></returns>
-        public bool ValidateCapacity(int desiredCapacity, int maxCapacity) => desiredCapacity <= maxCapacity;
+        public bool ValidateCapacity(string desiredCapacity, int maxCapacity) => int.Parse(desiredCapacity) <= maxCapacity;
         /// <summary>
         /// Sprawdzanie czy użytkownik wpisał poprawną godzinę
         /// </summary>

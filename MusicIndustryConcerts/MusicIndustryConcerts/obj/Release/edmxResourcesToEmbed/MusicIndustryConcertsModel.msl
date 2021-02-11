@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MusicIndustryConcertsModelStoreContainer" CdmEntityContainer="MusicIndustryConcertsEntities">
+    <EntitySetMapping Name="Artists">
+      <EntityTypeMapping TypeName="MusicIndustryConcertsModel.Artists">
+        <MappingFragment StoreEntitySet="Artists">
+          <ScalarProperty Name="ArtistID" ColumnName="ArtistID" />
+          <ScalarProperty Name="ArtistName" ColumnName="ArtistName" />
+          <ScalarProperty Name="MusicGenre" ColumnName="MusicGenre" />
+          <ScalarProperty Name="PerformancePrice" ColumnName="PerformancePrice" />
+          <ScalarProperty Name="ExplicitContent" ColumnName="ExplicitContent" />
+          <ScalarProperty Name="ArtistAvailability" ColumnName="ArtistAvailability" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Concerts">
+      <EntityTypeMapping TypeName="MusicIndustryConcertsModel.Concerts">
+        <MappingFragment StoreEntitySet="Concerts">
+          <ScalarProperty Name="ConcertID" ColumnName="ConcertID" />
+          <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+          <ScalarProperty Name="PlaceID" ColumnName="PlaceID" />
+          <ScalarProperty Name="ArtistID" ColumnName="ArtistID" />
+          <ScalarProperty Name="BaseTicketPrice" ColumnName="BaseTicketPrice" />
+          <ScalarProperty Name="VIPTicketPrice" ColumnName="VIPTicketPrice" />
+          <ScalarProperty Name="RemainingCapacity" ColumnName="RemainingCapacity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Places">
+      <EntityTypeMapping TypeName="MusicIndustryConcertsModel.Places">
+        <MappingFragment StoreEntitySet="Places">
+          <ScalarProperty Name="PlaceID" ColumnName="PlaceID" />
+          <ScalarProperty Name="PlaceName" ColumnName="PlaceName" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="BarArea" ColumnName="BarArea" />
+          <ScalarProperty Name="VIPArea" ColumnName="VIPArea" />
+          <ScalarProperty Name="OpeningHour" ColumnName="OpeningHour" />
+          <ScalarProperty Name="ClosingHour" ColumnName="ClosingHour" />
+          <ScalarProperty Name="AdultsOnly" ColumnName="AdultsOnly" />
+          <ScalarProperty Name="RentalPrice" ColumnName="RentalPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TicketOrders">
+      <EntityTypeMapping TypeName="MusicIndustryConcertsModel.TicketOrders">
+        <MappingFragment StoreEntitySet="TicketOrders">
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="ConcertID" ColumnName="ConcertID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="VIPTicket" ColumnName="VIPTicket" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

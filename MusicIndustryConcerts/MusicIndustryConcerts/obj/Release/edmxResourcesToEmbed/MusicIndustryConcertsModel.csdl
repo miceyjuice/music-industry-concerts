@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MusicIndustryConcertsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Artists">
+    <Key>
+      <PropertyRef Name="ArtistID" />
+    </Key>
+    <Property Name="ArtistID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ArtistName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MusicGenre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PerformancePrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ExplicitContent" Type="Boolean" Nullable="false" />
+    <Property Name="ArtistAvailability" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Concerts" Relationship="Self.FK__Concerts__Artist__4316F928" FromRole="Artists" ToRole="Concerts" />
+  </EntityType>
+  <EntityType Name="Concerts">
+    <Key>
+      <PropertyRef Name="ConcertID" />
+    </Key>
+    <Property Name="ConcertID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="PlaceID" Type="Int32" Nullable="false" />
+    <Property Name="ArtistID" Type="Int32" Nullable="false" />
+    <Property Name="BaseTicketPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="VIPTicketPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="RemainingCapacity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Artists" Relationship="Self.FK__Concerts__Artist__4316F928" FromRole="Concerts" ToRole="Artists" />
+    <NavigationProperty Name="Places" Relationship="Self.FK__Concerts__PlaceI__4222D4EF" FromRole="Concerts" ToRole="Places" />
+    <NavigationProperty Name="TicketOrders" Relationship="Self.FK__TicketOrd__Conce__45F365D3" FromRole="Concerts" ToRole="TicketOrders" />
+  </EntityType>
+  <EntityType Name="Places">
+    <Key>
+      <PropertyRef Name="PlaceID" />
+    </Key>
+    <Property Name="PlaceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PlaceName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Capacity" Type="Int32" Nullable="false" />
+    <Property Name="BarArea" Type="Boolean" Nullable="false" />
+    <Property Name="VIPArea" Type="Boolean" Nullable="false" />
+    <Property Name="OpeningHour" Type="Int32" Nullable="false" />
+    <Property Name="ClosingHour" Type="Int32" Nullable="false" />
+    <Property Name="AdultsOnly" Type="Boolean" Nullable="false" />
+    <Property Name="RentalPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Concerts" Relationship="Self.FK__Concerts__PlaceI__4222D4EF" FromRole="Places" ToRole="Concerts" />
+  </EntityType>
+  <EntityType Name="TicketOrders">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ConcertID" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VIPTicket" Type="Boolean" Nullable="false" />
+    <Property Name="Mail" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Concerts" Relationship="Self.FK__TicketOrd__Conce__45F365D3" FromRole="TicketOrders" ToRole="Concerts" />
+  </EntityType>
+  <Association Name="FK__Concerts__Artist__4316F928">
+    <End Role="Artists" Type="Self.Artists" Multiplicity="1" />
+    <End Role="Concerts" Type="Self.Concerts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artists">
+        <PropertyRef Name="ArtistID" />
+      </Principal>
+      <Dependent Role="Concerts">
+        <PropertyRef Name="ArtistID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Concerts__PlaceI__4222D4EF">
+    <End Role="Places" Type="Self.Places" Multiplicity="1" />
+    <End Role="Concerts" Type="Self.Concerts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Places">
+        <PropertyRef Name="PlaceID" />
+      </Principal>
+      <Dependent Role="Concerts">
+        <PropertyRef Name="PlaceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TicketOrd__Conce__45F365D3">
+    <End Role="Concerts" Type="Self.Concerts" Multiplicity="1" />
+    <End Role="TicketOrders" Type="Self.TicketOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Concerts">
+        <PropertyRef Name="ConcertID" />
+      </Principal>
+      <Dependent Role="TicketOrders">
+        <PropertyRef Name="ConcertID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MusicIndustryConcertsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Artists" EntityType="Self.Artists" />
+    <EntitySet Name="Concerts" EntityType="Self.Concerts" />
+    <EntitySet Name="Places" EntityType="Self.Places" />
+    <EntitySet Name="TicketOrders" EntityType="Self.TicketOrders" />
+    <AssociationSet Name="FK__Concerts__Artist__4316F928" Association="Self.FK__Concerts__Artist__4316F928">
+      <End Role="Artists" EntitySet="Artists" />
+      <End Role="Concerts" EntitySet="Concerts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Concerts__PlaceI__4222D4EF" Association="Self.FK__Concerts__PlaceI__4222D4EF">
+      <End Role="Places" EntitySet="Places" />
+      <End Role="Concerts" EntitySet="Concerts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TicketOrd__Conce__45F365D3" Association="Self.FK__TicketOrd__Conce__45F365D3">
+      <End Role="Concerts" EntitySet="Concerts" />
+      <End Role="TicketOrders" EntitySet="TicketOrders" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

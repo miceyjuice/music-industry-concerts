@@ -234,7 +234,7 @@
             </CheckBox>
             <TextBlock x:Name="emptyPlaceText"
                 HorizontalAlignment="Left" 
-                Margin="168,302,0,0" 
+                Margin="168,280,0,0" 
                 TextWrapping="Wrap" 
                 Text="This field cannot be empty" 
                 VerticalAlignment="Top" 
@@ -244,27 +244,27 @@
                 Visibility="Hidden" />
             <TextBlock x:Name="emptyCapacityText"
                 HorizontalAlignment="Left" 
-                Margin="168,426,0,0" 
+                Margin="168,402,0,0" 
                 TextWrapping="Wrap" 
                 Text="This field cannot be empty" 
                 VerticalAlignment="Top" 
                 FontFamily="Poppins"
                 Foreground="#db3939"
                 FontSize="14"
-                Visibility="Hidden"/>
+                       Visibility="Hidden"/>
             <TextBlock x:Name="emptyRentalText"
                 HorizontalAlignment="Left" 
-                Margin="168,550,0,0" 
+                Margin="168,526,0,0" 
                 TextWrapping="Wrap" 
                 Text="This field cannot be empty" 
                 VerticalAlignment="Top" 
                 FontFamily="Poppins"
                 Foreground="#db3939"
                 FontSize="14"
-                Visibility="Hidden"/>
+                       Visibility="Hidden"/>
             <TextBlock x:Name="emptyOpeningText"
                 HorizontalAlignment="Left" 
-                Margin="584,302,0,0" 
+                Margin="584,280,0,0" 
                 TextWrapping="Wrap" 
                 Text="" 
                 VerticalAlignment="Top" 
@@ -274,14 +274,14 @@
                 Visibility="Hidden"/>
             <TextBlock x:Name="emptyClosingText"
                 HorizontalAlignment="Left" 
-                Margin="771,302,0,0" 
+                Margin="771,280,0,0" 
                 TextWrapping="Wrap" 
                 Text="" 
                 VerticalAlignment="Top" 
                 FontFamily="Poppins"
                 Foreground="#db3939"
-                FontSize="12"
-                Visibility="Hidden"/>
+                FontSize="12" 
+                       Visibility="Hidden"/>
 
         </Grid>
 

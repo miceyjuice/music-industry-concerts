@@ -183,7 +183,7 @@
             </Setter>
         </Style>
     </Page.Resources>
-     
+
 
     <Grid Background="#333333" >
 
@@ -197,7 +197,7 @@
             </Grid.Background>
 
             <Button Content="Add" 
-                    Margin="168,609,673,66" 
+                    Margin="168,592,673,83" 
                     Height="45" Width="159" 
                     FontFamily="Poppins" 
                     FontSize="18"
@@ -300,8 +300,8 @@
                 <Run Text="artist"/>
                 <Run/>
             </TextBlock>
-            
-                <ComboBox x:Name="artistMusicGenreInput" 
+
+            <ComboBox x:Name="artistMusicGenreInput" 
                      Height="46" 
                      Margin="168,400,514,0"  
                      VerticalAlignment="Top" 
@@ -312,7 +312,7 @@
                      FontSize="20"
                      Foreground="#fff"
                      Padding="15,8,0,0">
-                </ComboBox>
+            </ComboBox>
             <TextBlock x:Name="emptyArtistText"
                 HorizontalAlignment="Left" 
                 Margin="170,327,0,0" 

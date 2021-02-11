@@ -7,14 +7,14 @@ create table Places (
 	OpeningHour int NOT NULL,
 	ClosingHour int NOT NULL,
 	AdultsOnly bit NOT NULL,
-	RentalPrice int NOT NULL
+	RentalPrice decimal(18, 2) NOT NULL
 );
 
 create table Artists (
 	ArtistID int NOT NULL PRIMARY KEY IDENTITY(1,1),
 	ArtistName nvarchar(150) NOT NULL,
 	MusicGenre nvarchar(50) NOT NULL,
-	PerformancePrice int NOT NULL,
+	PerformancePrice decimal(18, 2) NOT NULL,
 	ExplicitContent bit NOT NULL,
 	ArtistAvailability bit NOT NULL
 );
@@ -24,8 +24,8 @@ create table Concerts (
 	EventDate SmallDateTime NOT NULL,
 	PlaceID int NOT NULL FOREIGN KEY REFERENCES Places(PlaceID),
 	ArtistID int NOT NULL FOREIGN KEY REFERENCES Artists(ArtistID),
-	BaseTicketPrice int NOT NULL,
-	VIPTicketPrice int NOT NULL,
+	BaseTicketPrice decimal(18, 2) NOT NULL,
+	VIPTicketPrice decimal(18, 2) NOT NULL,
 	RemainingCapacity int NOT NULL
 );
 
