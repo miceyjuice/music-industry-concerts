@@ -534,7 +534,7 @@
                 HorizontalAlignment="Left" 
                 Margin="585,526,0,0" 
                 TextWrapping="Wrap" 
-                Text="This field cannot be empty" 
+                Text="" 
                 VerticalAlignment="Top" 
                 FontFamily="Poppins"
                 Foreground="#db3939"

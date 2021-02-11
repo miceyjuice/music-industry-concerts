@@ -15,6 +15,10 @@ namespace MusicIndustryConcerts.Windows
     {
         private readonly MusicIndustryConcertsEntities context = new MusicIndustryConcertsEntities();
         private readonly Validation validation = new Validation();
+
+        /// <summary>
+        /// Konstruktor klasy
+        /// </summary>
         public ConcertAdd()
         {
             InitializeComponent();
@@ -22,13 +26,18 @@ namespace MusicIndustryConcerts.Windows
             FillArtists();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
 
-        public void FillPlaces()
+        private void FillPlaces()
         {
             foreach(var rowik in context.Places.Select(p => p.PlaceName))
             {
@@ -36,7 +45,7 @@ namespace MusicIndustryConcerts.Windows
             }
         }
 
-        public void FillArtists()
+        private void FillArtists()
         {
             foreach (var rowik in context.Artists.Select(p => p.ArtistName))
             {
@@ -49,29 +58,37 @@ namespace MusicIndustryConcerts.Windows
             CreateConcert();
         }
 
-        private void CreateConcert() { 
-        
-            if (validation.ValidateFields(new Control[] { concertPlaceNameComboBox, concertArtistNameComboBox, concertDateInput, concertBaseTicketPriceInput, concertVipTicketPriceInput, concertRemainingCapacityInput }))
-            {
-                var newConcert = new Concerts()
-                {
-                    PlaceID = context.Places
-                    .Where(u => u.PlaceName.ToString().Equals(concertPlaceNameComboBox.SelectedValue.ToString()))
-                    .Select(u => u.PlaceID)
-                    .FirstOrDefault(),
-                    ArtistID = context.Artists
-                    .Where(u => u.ArtistName.ToString().Equals(concertArtistNameComboBox.SelectedValue.ToString()))
-                    .Select(u => u.ArtistID)
-                    .FirstOrDefault(),
-                    EventDate = concertDateInput.SelectedDate.Value,
-                    BaseTicketPrice = Convert.ToDecimal(concertBaseTicketPriceInput.Text),
-                    VIPTicketPrice = Convert.ToDecimal(concertVipTicketPriceInput.Text),
-                    RemainingCapacity = Convert.ToInt32(concertRemainingCapacityInput.Text)
-                };
+        private void CreateConcert() {
+            var placeCapacity = context.Places
+                .Where(u => u.PlaceName.ToString().Equals(concertPlaceNameComboBox.SelectedValue.ToString()))
+                .Select(u => u.Capacity)
+                .FirstOrDefault();
 
-                context.Concerts.Add(newConcert);
-                context.SaveChanges();
-                this.NavigationService.Navigate(new Uri("Windows/ConcertsList.xaml", UriKind.Relative));
+            if (validation.ValidateFields(new Control[] { concertPlaceNameComboBox, concertArtistNameComboBox, concertDateInput, concertBaseTicketPriceInput, concertVipTicketPriceInput, concertRemainingCapacityInput })) 
+               
+            {
+                
+                if(validation.ValidateCapacity(int.Parse(concertRemainingCapacityInput.Text), placeCapacity)){
+                    var newConcert = new Concerts()
+                    {
+                        PlaceID = context.Places
+                                        .Where(u => u.PlaceName.ToString().Equals(concertPlaceNameComboBox.SelectedValue.ToString()))
+                                        .Select(u => u.PlaceID)
+                                        .FirstOrDefault(),
+                        ArtistID = context.Artists
+                                        .Where(u => u.ArtistName.ToString().Equals(concertArtistNameComboBox.SelectedValue.ToString()))
+                                        .Select(u => u.ArtistID)
+                                        .FirstOrDefault(),
+                        EventDate = concertDateInput.SelectedDate.Value,
+                        BaseTicketPrice = Convert.ToDecimal(concertBaseTicketPriceInput.Text),
+                        VIPTicketPrice = Convert.ToDecimal(concertVipTicketPriceInput.Text),
+                        RemainingCapacity = Convert.ToInt32(concertRemainingCapacityInput.Text)
+                    };
+
+                    context.Concerts.Add(newConcert);
+                    context.SaveChanges();
+                    this.NavigationService.Navigate(new Uri("Windows/ConcertsList.xaml", UriKind.Relative));
+                }
             }
             else
             {
@@ -80,11 +97,17 @@ namespace MusicIndustryConcerts.Windows
                 emptyDateText.Visibility = Visibility.Visible;
                 emptyBaseTicketText.Visibility = Visibility.Visible;
                 emptyVipTextText.Visibility = Visibility.Visible;
+                emptyCapacityText.Text = "This field cannot be empty";
+                emptyCapacityText.Visibility = Visibility.Visible;
+            }
+            if (!validation.ValidateCapacity(int.Parse(concertRemainingCapacityInput.Text), placeCapacity))
+            {
+                emptyCapacityText.Text = "Cannot enter value higher than max capacity!";
                 emptyCapacityText.Visibility = Visibility.Visible;
             }
         }
 
-        public void CalcSuggestedBaseTicketPrice()
+        private void CalcSuggestedBaseTicketPrice()
         {
 
             if (concertPlaceNameComboBox.SelectedValue == null || concertArtistNameComboBox.SelectedValue == null || concertRemainingCapacityInput.Text == "") return;
